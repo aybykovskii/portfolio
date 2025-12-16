@@ -1,0 +1,38 @@
+---
+import { Button } from '@/components/Button'
+import { lang as langs } from '@/types/lang'
+
+import { ThemeToggle } from './ThemeToggle'
+import styles from './styles.module.scss'
+
+export interface Props {}
+export function getStaticPaths () {
+  return langs.options.map((lang) => ({ params: { lang } }))
+}
+
+const currentLang = Astro.params?.lang
+const pathname = Astro.url.pathname.replace(`/${currentLang}`, '')
+---
+<header class={styles.header}>
+  <section>
+    <ThemeToggle client:load />
+    <div>
+      <a href={`/ru${pathname}`}>ru</a>
+      <a href={`/en${pathname}`}>en</a>
+      <a href={`/es${pathname}`}>es</a>
+    </div>
+  </section>
+
+  <nav>
+    <a href={`/${currentLang}/`}>Home</a>
+    <a href={`/${currentLang}/projects`}>Projects</a>
+    <a href={`/${currentLang}/contacts`}>Contacts</a>
+  </nav>
+
+  <Button onClick={() => {}}>
+    hire me
+  </Button>
+</header>
+
+<script>
+</script>

@@ -8,17 +8,21 @@
  * @module
  */
 
+import type * as all from "../all.js";
+import type * as bio from "../bio.js";
+import type * as experiences from "../experiences.js";
+import type * as languages from "../languages.js";
+import type * as projects from "../projects.js";
+import type * as skills from "../skills.js";
+import type * as socials from "../socials.js";
+import type * as translations from "../translations.js";
+import type * as utils from "../utils.js";
+
 import type {
   ApiFromModules,
   FilterApi,
   FunctionReference,
 } from "convex/server";
-import type * as experiences from "../experiences.js";
-import type * as info from "../info.js";
-import type * as languages from "../languages.js";
-import type * as projects from "../projects.js";
-import type * as skills from "../skills.js";
-import type * as translations from "../translations.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -29,18 +33,25 @@ import type * as translations from "../translations.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  all: typeof all;
+  bio: typeof bio;
   experiences: typeof experiences;
-  info: typeof info;
   languages: typeof languages;
   projects: typeof projects;
   skills: typeof skills;
+  socials: typeof socials;
   translations: typeof translations;
+  utils: typeof utils;
 }>;
+declare const fullApiWithMounts: typeof fullApi;
+
 export declare const api: FilterApi<
-  typeof fullApi,
+  typeof fullApiWithMounts,
   FunctionReference<any, "public">
 >;
 export declare const internal: FilterApi<
-  typeof fullApi,
+  typeof fullApiWithMounts,
   FunctionReference<any, "internal">
 >;
+
+export declare const components: {};

@@ -1,0 +1,48 @@
+@use '/src/styles/mixins';
+
+.projectCard {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  @include mixins.card;
+  padding: 0;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+
+  .status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-5);
+    padding: var(--spacing-3);
+
+    h3 {
+      font-size: var(--text-l);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    p {
+      font-size: var(--text-m);
+      color: var(--text-muted);
+      line-height: 1.625;
+    }
+
+    .buttons {
+      display: flex;
+      gap: var(--spacing-3);
+    }
+  }
+}

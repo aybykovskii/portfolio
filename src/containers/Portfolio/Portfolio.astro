@@ -1,0 +1,57 @@
+---
+import { api } from '@convex/_generated/api'
+
+import { Badge } from '@/components/Badge'
+import { ExperienceCard } from '@/components/ExperienceCard'
+import { Panel } from '@/components/Panel'
+import { ProjectCard } from '@/components/ProjectCard'
+import { convexHttpClient } from '@/lib/convexClient'
+import { Lang } from '@/types'
+
+import styles from './styles.module.scss'
+
+interface Props {
+  lang: Lang
+}
+
+const lang = Astro.props.lang
+
+const { bio, experiences, projects, skills, languages, socials } = await convexHttpClient.query(api.all.get, {
+  lang,
+})
+---
+<div class={styles.portfolio}>
+  <section class={styles.main}>
+    <section class={styles.description}>
+      <h1>
+        <span>Senior Frontend</span>
+        <span>Developer</span>
+      </h1>
+      <p>{bio.description}</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      {experiences?.map((experience) => <ExperienceCard key={experience.name} experience={experience} />)}
+    </section>
+
+    <section class={styles.skills}>
+      <h2>Skills</h2>
+
+      <ul>
+        {skills?.map((skill) => (
+          <Badge size="large" key={skill.name} text={skill.name} iconName={skill.icon || skill.name} />
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      {projects?.map((project) => <ProjectCard lang={lang} key={project.name} project={project} />)}
+    </section>
+  </section>
+
+  <Panel bio={bio} socials={socials} languages={languages} skills={skills} />
+</div>

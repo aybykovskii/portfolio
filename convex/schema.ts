@@ -1,39 +1,40 @@
 import { defineSchema, defineTable } from 'convex/server'
 import { v } from 'convex/values'
 
+const translation = v.string()
+
 export default defineSchema({
-  info: defineTable({
+  bio: defineTable({
     name: v.string(),
-    position: v.string(),
-    start: v.number(),
-    end: v.union(v.number(), v.literal('present')),
-    company: v.string(),
+    description: translation,
+    avatar: v.string(),
+    location: v.string(),
   }),
 
   experiences: defineTable({
     name: v.string(),
-    position: v.string(),
+    position: translation,
     start: v.number(),
     end: v.union(v.number(), v.literal('present')),
     company: v.string(),
     companyUrl: v.union(v.string(), v.null()),
-    description: v.string(),
-    advantages: v.array(v.string()),
-    technologies: v.array(v.string()),
-    images: v.array(v.string()),
+    description: translation,
+    achievements: translation,
+    technologies: v.array(v.id('skills')),
+    location: v.string(),
   }),
 
   projects: defineTable({
     name: v.string(),
     title: v.string(),
     relatedTo: v.union(v.string(), v.literal('pet')),
-    description: v.string(),
-    technologies: v.array(v.string()),
+    description: translation,
+    technologies: v.array(v.id('skills')),
     images: v.array(v.string()),
     url: v.union(v.string(), v.null()),
     status: v.union(v.literal('in-progress'), v.literal('completed')),
     button: v.union(v.null(), v.object({
-      text: v.string(),
+      text: translation,
       url: v.string(),
     })),
   }),
@@ -51,28 +52,20 @@ export default defineSchema({
     icon: v.string(),
   }),
 
-  educations: defineTable({
-    name: v.string(),
-    start: v.number(),
-    end: v.number(),
-    description: v.string(),
-  }),
-
-  contacts: defineTable({
-    name: v.string(),
-    url: v.string(),
-    icon: v.string(),
-  }),
-
   socials: defineTable({
     name: v.string(),
     url: v.string(),
-    icon: v.string(),
+    iconPath: v.optional(v.string()),
+    iconName: v.optional(v.string()),
+    color: v.optional(v.string()),
   }),
 
   translations: defineTable({
     lang: v.string(),
     key: v.string(),
-    text: v.string(),
-  }),
+    text: v.optional(v.string()),
+    content: v.optional(v.array(v.string())),
+  })
+    .index('by_lang', ['lang'])
+    .index('by_lang_key', ['lang', 'key']),
 })
