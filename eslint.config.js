@@ -27,6 +27,13 @@ export default [
   // TypeScript
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
+  ...eslintPluginAstro.configs.recommended,
+  {
+    files: ['*.astro'],
+    rules: {
+      'react/no-unknown-property': 'off',
+    },
+  },
   {
     languageOptions: {
       globals: {
@@ -53,13 +60,7 @@ export default [
       ...reactHooksPlugin.configs.recommended.rules,
     },
   },
-  ...eslintPluginAstro.configs.recommended,
-  {
-    files: ['*.astro'],
-    rules: {
-      'react/no-unknown-property': 'off',
-    },
-  },
+
   // A11y
   jsxA11yPlugin.flatConfigs.recommended,
   // Custom & Overrides

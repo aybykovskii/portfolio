@@ -1,0 +1,58 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+
+import { lang as langs } from '@/types/lang'
+
+import { ThemeToggle } from './ThemeToggle'
+
+export interface Props {}
+export function getStaticPaths() {
+  return langs.options.map((lang) => ({ params: { lang } }))
+}
+
+const lang = Astro.params.lang
+const path = Astro.url.pathname.replace(`/${lang}`, '')
+const { commonTranslations } = Astro.locals
+---
+
+<header class="sticky top-4 flex z-10 items-center justify-between px-6 py-3 border-4 border-primary rounded-[36px] bg-base-100">
+  <section class="flex items-center gap-4">
+    <ThemeToggle client:load />
+    <div class="flex gap-1">
+      {
+        langs.options.map((lang, index) => (
+          <>
+            {!!index && <span class="text-base-content/40">/</span>}
+            <a
+              href={getRelativeLocaleUrl(lang, path)}
+              class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
+            >
+              {lang}
+            </a>
+          </>
+        ))
+      }
+    </div>
+  </section>
+
+  <nav class="flex items-center gap-4">
+    <a
+      href={getRelativeLocaleUrl(lang, 'about')}
+      class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
+    >
+      {commonTranslations['routes.about']}
+    </a>
+    <a
+      href={getRelativeLocaleUrl(lang, 'projects')}
+      class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
+    >
+      {commonTranslations['routes.projects']}
+    </a>
+  </nav>
+
+  <button class="btn btn-primary rounded-full">
+    {commonTranslations['actions.hireMe']}
+  </button>
+</header>
+
+<script></script>

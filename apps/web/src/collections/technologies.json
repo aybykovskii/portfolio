@@ -1,0 +1,110 @@
+[
+  {
+    "id": "react",
+    "name": "React",
+    "icon": "react",
+    "level": 5
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "icon": "typescript",
+    "level": 5
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "icon": "javascript",
+    "level": 5
+  },
+  {
+    "id": "nextjs",
+    "name": "Next.js",
+    "icon": "next.js",
+    "level": 5
+  },
+  {
+    "id": "redux-toolkit",
+    "name": "Redux Toolkit",
+    "icon": "redux",
+    "level": 5
+  },
+  {
+    "id": "scss",
+    "name": "SCSS",
+    "icon": "sass",
+    "level": 5
+  },
+  {
+    "id": "tailwindcss",
+    "name": "Tailwind CSS",
+    "icon": "tailwindcss",
+    "level": 4
+  },
+  {
+    "id": "astro",
+    "name": "Astro",
+    "icon": "astro",
+    "level": 4
+  },
+  {
+    "id": "vite",
+    "name": "vite",
+    "icon": "vite",
+    "level": 4
+  },
+  {
+    "id": "vitest",
+    "name": "Vitest",
+    "icon": "vitest",
+    "level": 4
+  },
+  {
+    "id": "jest",
+    "name": "Jest",
+    "icon": "jest",
+    "level": 4
+  },
+  {
+    "id": "redux",
+    "name": "Redux",
+    "icon": "redux",
+    "level": 4
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "icon": "node.js",
+    "level": 3
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "icon": "mongodb",
+    "level": 3
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "icon": "postgresql",
+    "level": 3
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "icon": "redis",
+    "level": 3
+  },
+  {
+    "id": "webpack",
+    "name": "Webpack",
+    "icon": "webpack",
+    "level": 3
+  },
+  {
+    "id": "convex",
+    "name": "Convex",
+    "icon": "convex",
+    "level": 3
+  }
+]

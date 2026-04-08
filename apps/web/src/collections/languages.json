@@ -1,0 +1,29 @@
+[
+  {
+    "id": "russian",
+    "level": 5,
+    "translations": {
+      "en": { "name": "Russian" },
+      "ru": { "name": "Русский" },
+      "es": { "name": "Ruso" }
+    }
+  },
+  {
+    "id": "english",
+    "level": 4,
+    "translations": {
+      "en": { "name": "English" },
+      "ru": { "name": "Английский" },
+      "es": { "name": "Inglés" }
+    }
+  },
+  {
+    "id": "spanish",
+    "level": 2,
+    "translations": {
+      "en": { "name": "Spanish" },
+      "ru": { "name": "Испанский" },
+      "es": { "name": "Español" }
+    }
+  }
+]

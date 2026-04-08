@@ -1,0 +1,139 @@
+[
+  {
+    "slug": "42",
+    "company": "42 LLC",
+    "companyUrl": "https://answer-42.ru",
+    "start": 2021,
+    "end": "present",
+    "location": "Remote",
+    "position": "Senior Frontend Developer",
+    "technologies": [
+      "react",
+      "typescript",
+      "javascript",
+      "redux-toolkit",
+      "scss",
+      "jest",
+      "vitest"
+    ],
+    "translations": {
+      "en": {
+        "description": "Served as a senior frontend engineer on Moscow Electronic School (MES) — a government-scale education platform used by millions of students across Moscow, maintained by a cross-functional team of 10+ engineers.",
+        "achievements": [
+          "Drove a full TypeScript migration across 5 projects, upgrading 1,000+ components and reducing tight coupling between codebases — enabling new engineers to navigate unfamiliar projects 3x faster.",
+          "Architected and co-built a Coursera-style course platform within MES — designed the frontend architecture, led the team through implementation, and shipped to production.",
+          "Designed and rolled out unified ESLint and dprint configurations across 5+ projects, eliminating inconsistent formatting and establishing a single code style standard across the entire team.",
+          "Led migration to Redux Toolkit, standardizing async patterns and cutting sprint cycle time by ~40%.",
+          "Acted as a go-to technical resource across multiple teams — regularly consulted on architecture decisions and contributed to final technology choices for new features and systems.",
+          "Continuously mentored interns and junior engineers — grew 5 engineers to mid-level within 24 months."
+        ]
+      },
+      "ru": {
+        "description": "Работал старшим frontend-инженером на платформе Московская Электронная Школа (МЭШ) — образовательной платформе государственного масштаба, которой пользуются миллионы учеников по всей Москве, поддерживаемой кросс-функциональной командой из 10+ инженеров.",
+        "achievements": [
+          "Провёл полную миграцию на TypeScript в 5 проектах, обновив 1000+ компонентов и снизив связанность между кодовыми базами — новые инженеры стали разбираться в незнакомых проектах в 3 раза быстрее.",
+          "Спроектировал и участвовал в разработке платформы курсов в стиле Coursera в рамках МЭШ — разработал frontend-архитектуру, руководил командой в процессе реализации и вывел в production.",
+          "Разработал и внедрил единые конфигурации ESLint и dprint в 5+ проектах, устранив непоследовательное форматирование и установив единый стандарт стиля кода для всей команды.",
+          "Руководил миграцией на Redux Toolkit, стандартизировав асинхронные паттерны и сократив время цикла спринта примерно на 40%.",
+          "Являлся основным техническим ресурсом для нескольких команд — регулярно консультировал по архитектурным решениям и участвовал в окончательном выборе технологий для новых функций и систем.",
+          "Постоянно менторил стажёров и junior-инженеров — вырастил 5 инженеров до уровня middle за 24 месяца."
+        ]
+      },
+      "es": {
+        "description": "Me desempeñé como ingeniero frontend senior en la Escuela Electrónica de Moscú (MES) — una plataforma educativa de escala gubernamental utilizada por millones de estudiantes en toda Moscú, mantenida por un equipo multifuncional de más de 10 ingenieros.",
+        "achievements": [
+          "Lideré una migración completa a TypeScript en 5 proyectos, actualizando más de 1,000 componentes y reduciendo el acoplamiento entre bases de código — permitiendo a los nuevos ingenieros navegar proyectos desconocidos 3 veces más rápido.",
+          "Diseñé y co-construí una plataforma de cursos estilo Coursera dentro de MES — diseñé la arquitectura frontend, lideré al equipo en la implementación y entregué a producción.",
+          "Diseñé e implementé configuraciones unificadas de ESLint y dprint en más de 5 proyectos, eliminando el formateo inconsistente y estableciendo un único estándar de estilo de código para todo el equipo.",
+          "Lideré la migración a Redux Toolkit, estandarizando patrones asíncronos y reduciendo el tiempo de ciclo de sprint en ~40%.",
+          "Actué como recurso técnico de referencia en múltiples equipos — consultado regularmente sobre decisiones de arquitectura y contribuyendo a las elecciones tecnológicas finales para nuevas funcionalidades y sistemas.",
+          "Mentoreé continuamente a pasantes e ingenieros junior — hice crecer a 5 ingenieros al nivel intermedio en 24 meses."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "urban-it",
+    "company": "Urban IT",
+    "companyUrl": null,
+    "start": 2020,
+    "end": 2021,
+    "location": "Remote",
+    "position": "Middle Frontend Developer",
+    "technologies": [
+      "react",
+      "typescript",
+      "javascript",
+      "redux",
+      "webpack",
+      "nodejs",
+      "mongodb"
+    ],
+    "translations": {
+      "en": {
+        "description": "Contributed to a civic tech startup building a crowdsourced cleanliness-rating platform for residential courtyards in Khabarovsk — allowing residents to rate and track neighborhood cleanliness via an interactive map.",
+        "achievements": [
+          "Built the React/TypeScript frontend within a small team, implementing interactive map views with Yandex Maps API (migrated from Google Maps).",
+          "Integrated Redux for state management across dynamic map and rating features.",
+          "Contributed to the Node.js/MongoDB backend and improved build performance via Webpack optimization."
+        ]
+      },
+      "ru": {
+        "description": "Участвовал в разработке стартапа в сфере гражданских технологий — краудсорсинговой платформы для оценки чистоты жилых дворов Хабаровска, позволяющей жителям оценивать и отслеживать чистоту района через интерактивную карту.",
+        "achievements": [
+          "Разработал frontend на React/TypeScript в составе небольшой команды, реализовав интерактивные карточные представления с Yandex Maps API (мигрировали с Google Maps).",
+          "Интегрировал Redux для управления состоянием в динамических функциях карты и рейтингов.",
+          "Вносил вклад в backend на Node.js/MongoDB и улучшил производительность сборки с помощью оптимизации Webpack."
+        ]
+      },
+      "es": {
+        "description": "Contribuí a una startup de tecnología cívica que desarrolla una plataforma de calificación de limpieza colaborativa para patios residenciales en Jabárovsk — permitiendo a los residentes calificar y rastrear la limpieza del vecindario mediante un mapa interactivo.",
+        "achievements": [
+          "Construí el frontend en React/TypeScript dentro de un equipo pequeño, implementando vistas de mapa interactivas con la API de Yandex Maps (migrado desde Google Maps).",
+          "Integré Redux para la gestión de estado en las funcionalidades dinámicas de mapa y calificación.",
+          "Contribuí al backend de Node.js/MongoDB y mejoré el rendimiento de compilación mediante la optimización de Webpack."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "freelance",
+    "company": "Freelance",
+    "companyUrl": null,
+    "start": 2019,
+    "end": 2020,
+    "location": "Remote",
+    "position": "Web Developer",
+    "technologies": [
+      "react",
+      "typescript",
+      "javascript",
+      "redux",
+      "scss",
+      "css"
+    ],
+    "translations": {
+      "en": {
+        "description": "Delivered frontend work across ~100 client projects over 12 months — ranging from UI fixes and component builds to full landing page development.",
+        "achievements": [
+          "Maintained a strong repeat-client rate, with multiple clients returning for 2–3 additional engagements.",
+          "Adapted quickly to varied codebases and requirements across diverse projects."
+        ]
+      },
+      "ru": {
+        "description": "Выполнял frontend-разработку в ~100 клиентских проектах за 12 месяцев — от исправления UI и создания компонентов до полноценной разработки лендингов.",
+        "achievements": [
+          "Поддерживал высокий процент повторных обращений — несколько клиентов возвращались для 2–3 дополнительных проектов.",
+          "Быстро адаптировался к разнообразным кодовым базам и требованиям в различных проектах."
+        ]
+      },
+      "es": {
+        "description": "Entregué trabajo de frontend en ~100 proyectos de clientes durante 12 meses — desde correcciones de UI y construcción de componentes hasta el desarrollo completo de landing pages.",
+        "achievements": [
+          "Mantuve una alta tasa de clientes recurrentes, con múltiples clientes regresando para 2–3 compromisos adicionales.",
+          "Me adapté rápidamente a diversas bases de código y requisitos en proyectos variados."
+        ]
+      }
+    }
+  }
+]

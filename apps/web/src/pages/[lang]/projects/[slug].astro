@@ -1,0 +1,24 @@
+---
+export const prerender = true
+
+import { getCollection } from 'astro:content'
+import { lang as langs } from '@/types/lang'
+
+export async function getStaticPaths () {
+  const projects = await getCollection('projects')
+  console.log({ projects, data: projects.map((project) => project.data) })
+
+  return projects.flatMap((project) =>
+    langs.options.map((lang) => ({
+      params: { lang, slug: project.data.slug },
+      props: { project, lang },
+    }))
+  )
+}
+
+const { project, lang } = Astro.props
+const t = project.data.translations[lang]
+---
+
+<div>Hi, {project.data.title}!</div>
+<div>{t.description}</div>

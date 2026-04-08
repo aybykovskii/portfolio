@@ -11,7 +11,6 @@
     "singleBodyPosition": "nextLine",
     "ifStatement.singleBodyPosition": "sameLine",
     "preferHanging": true,
-
     "constructor.spaceBeforeParentheses": true,
     "arrowFunction.useParentheses": "force",
     "parameters.preferHanging": "onlySingleItem",
@@ -20,10 +19,8 @@
     "method.spaceBeforeParentheses": true,
     "getAccessor.spaceBeforeParentheses": true,
     "setAccessor.spaceBeforeParentheses": true,
-
     "binaryExpression.operatorPosition": "nextLine",
     "binaryExpression.preferSingleLine": true,
-
     "jsx.quoteStyle": "preferDouble",
     "jsx.bracketPosition": "nextLine",
     "jsxAttributes.preferSingleLine": true,
@@ -31,16 +28,13 @@
     "jsx.forceNewLinesSurroundingContent": false,
     "jsxSelfClosingElement.bracketPosition": "nextLine",
     "jsx.multiLineParens": "always",
-
     "module.sortImportDeclarations": "maintain",
     "importDeclaration.sortNamedImports": "maintain",
     "importDeclaration.preferHanging": false,
-
     "ignoreNodeCommentText": "dprint-ignore",
     "ignoreFileCommentText": "dprint-ignore-file"
   },
-  "json": {
-  },
+  "json": {},
   "malva": {
     "indentWidth": 2,
     "useTabs": false,
@@ -51,6 +45,7 @@
     "blockSelectorLinebreak": "consistent",
     "declarationOrderGroupBy": "nonDeclarationAndEmptyLine"
   },
+  "markup": {},
   "excludes": [
     "**/node_modules",
     "**/dist",

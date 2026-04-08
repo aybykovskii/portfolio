@@ -1,5 +1,3 @@
-declare module '*.module.scss'
-
 // Расширение стандартного интерфейса Object,
 // т.к. методы keys и entries имеют неверную типизацию
 interface ObjectConstructor {
@@ -27,3 +25,4 @@ interface Array<T> {
     fromIndex?: number
   ): searchElement is T
 }
+

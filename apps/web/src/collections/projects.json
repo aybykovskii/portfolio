@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "daaspil",
+    "title": "Daaspil Digital Store",
+    "images": [],
+    "status": "completed",
+    "technologies": [
+      "typescript",
+      "react",
+      "astro",
+      "tailwindcss",
+      "convex"
+    ],
+    "button": null,
+    "url": "https://daaspil.com",
+    "translations": {
+      "en": {
+        "description": "Conversion-focused landing page for an Instagram creator selling digital guidebooks — live with active sales. Integrated Robokassa payment API with full checkout flow. Built on Astro with self-hosted Convex, AWS S3, and CloudFront — achieving sub-second load times. Owned full infrastructure: dedicated server setup, CI/CD pipeline, and deployment."
+      },
+      "ru": {
+        "description": "Лендинг с фокусом на конверсию для Instagram-блогера, продающего цифровые путеводители — работает с активными продажами. Интегрирован платёжный API Robokassa с полным процессом оплаты. Построен на Astro с self-hosted Convex, AWS S3 и CloudFront — время загрузки менее секунды. Полная ответственность за инфраструктуру: настройка выделенного сервера, CI/CD-пайплайн и деплой."
+      },
+      "es": {
+        "description": "Landing page orientada a la conversión para un creador de Instagram que vende guías digitales — activa con ventas reales. Integración de la API de pagos Robokassa con flujo de pago completo. Construida con Astro, Convex autohospedado, AWS S3 y CloudFront — tiempos de carga inferiores a un segundo. Infraestructura completa: servidor dedicado, pipeline CI/CD y despliegue."
+      }
+    }
+  },
+  {
+    "slug": "guidegram",
+    "title": "Guidegram",
+    "images": ["/images/projects/guidegram.png"],
+    "status": "completed",
+    "technologies": [
+      "typescript",
+      "postgresql",
+      "redis",
+      "nodejs"
+    ],
+    "button": null,
+    "url": "https://github.com/toro-devs/guidegram-preview",
+    "translations": {
+      "en": {
+        "description": "Production Telegram commerce bot for a content creator to sell digital products — sole developer, end-to-end from architecture to deployment. Integrated YooKassa and Robokassa payment APIs with full paywall logic. Built discount and segmented broadcast features. Owned full infrastructure: CI/CD pipeline, server provisioning, and deployment."
+      },
+      "ru": {
+        "description": "Production-бот для Telegram-коммерции для контент-мейкера по продаже цифровых продуктов — единственный разработчик, от архитектуры до деплоя. Интегрированы платёжные API YooKassa и Robokassa с полной логикой пейволла. Реализованы функции скидок и сегментированных рассылок. Полная ответственность за инфраструктуру: CI/CD-пайплайн, настройка сервера и деплой."
+      },
+      "es": {
+        "description": "Bot de comercio en Telegram en producción para un creador de contenido que vende productos digitales — desarrollador único, de extremo a extremo desde la arquitectura hasta el despliegue. Integración de las APIs de pago YooKassa y Robokassa con lógica de paywall completa. Funcionalidades de descuentos y transmisiones segmentadas. Infraestructura completa: pipeline CI/CD, aprovisionamiento de servidor y despliegue."
+      }
+    }
+  },
+  {
+    "slug": "baby-vita-dent",
+    "title": "Baby Vita Dent",
+    "images": [],
+    "status": "completed",
+    "technologies": [
+      "react",
+      "typescript",
+      "nextjs",
+      "nodejs",
+      "mongodb"
+    ],
+    "button": null,
+    "url": "https://babyvitadent.ru/",
+    "translations": {
+      "en": {
+        "description": "Full-stack web platform for a Moscow dental clinic network serving ~5,000 monthly users — delivered in 6 months by a 2-person team. Built an end-to-end appointment booking system with clinic branch/doctor/time slot selection and Telegram bot confirmations. Owned the full frontend: Next.js UI, admin panel, and SEO optimization."
+      },
+      "ru": {
+        "description": "Полноценная веб-платформа для сети московских стоматологических клиник с ~5000 пользователями в месяц — разработана за 6 месяцев командой из 2 человек. Создана сквозная система записи на приём с выбором клиники, врача и временного слота; подтверждения направляются через Telegram-бот в соответствующий филиал. Полная ответственность за frontend: UI на Next.js, административная панель и SEO-оптимизация."
+      },
+      "es": {
+        "description": "Plataforma web full-stack para una red de clínicas dentales en Moscú con ~5,000 usuarios mensuales — entregada en 6 meses por un equipo de 2 personas. Sistema de reserva de citas de extremo a extremo con selección de sucursal, médico y franja horaria; confirmaciones enrutadas vía bot de Telegram al personal de la sucursal correspondiente. Frontend completo: UI en Next.js, panel de administración y optimización SEO."
+      }
+    }
+  }
+]

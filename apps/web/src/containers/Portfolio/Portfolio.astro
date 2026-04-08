@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content'
+
+import { bio } from '@/collections/types'
+import { ExperienceCard } from '@/components/ExperienceCard'
+import { Panel } from '@/components/Panel'
+import { ProjectCard } from '@/components/ProjectCard'
+import type { Lang } from '@/types'
+import { getTranslated } from '@/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+
+const projects = await getCollection('projects')
+const experiences = await getCollection('experiences')
+const technologies = await getCollection('technologies')
+const languages = await getCollection('languages')
+const translatedBio = getTranslated(bio, lang)
+const commonTranslations = Astro.locals.commonTranslations
+
+const { highlight, position } = translatedBio
+
+const isStartsWithHighlight = position.startsWith(highlight)
+const restPosition = position.replace(highlight, '')
+
+---
+
+<div class="flex justify-between gap-12 text-base-content">
+  <section class="flex flex-col gap-6 min-w-0 flex-1">
+    <section class="flex flex-col items-start gap-6">
+      <h1 class="flex flex-wrap gap-3.5">
+        {isStartsWithHighlight ? (
+          <>
+          <span class="text-primary font-semibold text-[106px] leading-none">{highlight}</span>
+          <span class="text-base-content font-semibold text-[60px] leading-none">{restPosition}</span>
+          </>
+        ) : (
+          <>
+          <span class="text-base-content font-semibold text-[60px] leading-none">{restPosition}</span>
+          <span class="text-primary font-semibold text-[106px] leading-none">{highlight}</span>
+          </>
+        )}
+      </h1>
+      <p class="text-base-content/60 font-normal text-lg leading-relaxed">
+        {bio.translations[lang].description}
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-4">
+      <h2 class="mb-6 text-base-content font-semibold text-3xl">
+        {commonTranslations['sections.experience']}
+      </h2>
+      {experiences?.map(({ data: experience }) => (
+        <ExperienceCard lang={lang} key={experience.slug} experience={experience} />
+      ))}
+    </section>
+
+    <section class="flex flex-col gap-4">
+      <h2 class="mb-6 text-base-content font-semibold text-3xl">
+        {commonTranslations['sections.skills']}
+      </h2>
+      <ul class="flex flex-wrap gap-4">
+        {technologies?.map(({ data: technology }) => (
+          <li>
+            <span class="badge badge-primary badge-soft badge-lg gap-2">
+              <img
+                width={16}
+                height={16}
+                src={`https://cdn.simpleicons.org/${technology.icon || technology.name}/default`}
+                alt={technology.name}
+              />
+              {technology.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-4">
+      <h2 class="mb-6 text-base-content font-semibold text-3xl">
+        {commonTranslations['sections.projects']}
+      </h2>
+      {projects?.map(({ data: project }) => (
+        <ProjectCard lang={lang} key={project.slug} project={project} />
+      ))}
+    </section>
+  </section>
+
+  <Panel bio={bio} languages={languages} skills={technologies} lang={lang} />
+</div>

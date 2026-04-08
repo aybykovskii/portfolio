@@ -1,0 +1,31 @@
+{
+  "avatar": "/images/avatar.png",
+  "contacts": {
+    "email": "aybykovskii@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/aybykovskii/",
+    "github": "https://github.com/aybykovskii"
+  },
+  "translations": {
+    "en": {
+      "description": "Senior Frontend Engineer with 5+ years building and scaling product-focused React/TypeScript applications. Track record of driving measurable improvements — migrating legacy codebases, reducing cycle time, and shipping reliable internal tooling used across teams. Experienced in cross-functional collaboration, mentoring engineers to mid-level, and taking full ownership from architecture to production deployment.",
+      "name": "Aleksei Bykovskii",
+      "position": "Senior Frontend Engineer",
+      "highlight": "Engineer",
+      "location": "Remote"
+    },
+    "ru": {
+      "description": "Senior Frontend-инженер с 5+ годами опыта создания и масштабирования продуктовых приложений на React/TypeScript. Имею подтверждённый опыт достижения измеримых результатов — миграции устаревших кодовых баз, сокращения времени цикла разработки и создания надёжного внутреннего инструментария, используемого командами. Опытен в кросс-функциональном взаимодействии, менторстве инженеров до уровня middle и полном владении продуктом от архитектуры до производственного деплоя.",
+      "name": "Алексей Быковский",
+      "position": "Senior Frontend Engineer",
+      "highlight": "Engineer",
+      "location": "Удалённо"
+    },
+    "es": {
+      "description": "Ingeniero Frontend Senior con más de 5 años construyendo y escalando aplicaciones React/TypeScript orientadas al producto. Historial demostrado de mejoras medibles — migrando bases de código heredadas, reduciendo el tiempo de ciclo y enviando herramientas internas confiables utilizadas en todos los equipos. Experimentado en colaboración interfuncional, mentoría de ingenieros a nivel intermedio y responsabilidad total desde la arquitectura hasta el despliegue en producción.",
+      "name": "Alejandro Bykovskii",
+      "position": "Ingeniero Frontend Senior",
+      "highlight": "Ingeniero",
+      "location": "Remotamente"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+  {
+    "routes.about": {
+      "en": "About",
+      "ru": "Обо мне",
+      "es": "Sobre mí"
+    },
+    "routes.projects": {
+      "en": "Projects",
+      "ru": "Проекты",
+      "es": "Proyectos"
+    },
+    "actions.hireMe": {
+      "en": "Hire me",
+      "ru": "Нанять меня",
+      "es": "Contrátame"
+    },
+    "actions.details": {
+      "en": "Details",
+      "ru": "Подробнее",
+      "es": "Detalles"
+    },
+    "actions.back": {
+      "en": "Back",
+      "ru": "Назад",
+      "es": "Volver"
+    },
+    "actions.github": {
+      "en": "GitHub",
+      "ru": "GitHub",
+      "es": "GitHub"
+    },
+    "actions.viewProject": {
+      "en": "View project",
+      "ru": "Смотреть проект",
+      "es": "Ver proyecto"
+    },
+    "sections.about": {
+      "en": "About",
+      "ru": "Обо мне",
+      "es": "Sobre mí"
+    },
+    "sections.experience": {
+      "en": "Experience",
+      "ru": "Опыт",
+      "es": "Experiencia"
+    },
+    "sections.skills": {
+      "en": "Skills",
+      "ru": "Навыки",
+      "es": "Habilidades"
+    },
+    "sections.projects": {
+      "en": "Projects",
+      "ru": "Проекты",
+      "es": "Proyectos"
+    },
+    "sections.portfolio": {
+      "en": "Portfolio",
+      "ru": "Портфолио",
+      "es": "Portafolio"
+    },
+    "experience.achievements": {
+      "en": "Achievements",
+      "ru": "Достижения",
+      "es": "Logros"
+    },
+    "experience.present": {
+      "en": "Present",
+      "ru": "По настоящее время",
+      "es": "Actualidad"
+    },
+    "status.available": {
+      "en": "Available for opportunities",
+      "ru": "Открыт к предложениям",
+      "es": "Disponible para oportunidades"
+    },
+    "status.completed": {
+      "en": "Completed",
+      "ru": "Завершён",
+      "es": "Completado"
+    },
+    "status.inProgress": {
+      "en": "In progress",
+      "ru": "В разработке",
+      "es": "En progreso"
+    },
+    "notFound.title": {
+      "en": "404 - Page not found",
+      "ru": "404 - Страница не найдена",
+      "es": "404 - Página no encontrada"
+    },
+    "notFound.description": {
+      "en": "The page you are looking for does not exist.",
+      "ru": "Страница, которую вы ищете, не существует.",
+      "es": "La página que buscas no existe."
+    }
+  }
