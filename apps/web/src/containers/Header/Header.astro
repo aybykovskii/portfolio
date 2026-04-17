@@ -15,7 +15,7 @@ const path = Astro.url.pathname.replace(`/${lang}`, '')
 const { commonTranslations } = Astro.locals
 ---
 
-<header class="sticky top-4 flex z-10 items-center justify-between px-6 py-3 border-4 border-primary rounded-[36px] bg-base-100">
+<header class="sticky top-4 flex z-10 items-center justify-between gap-2 px-4 sm:px-6 py-3 border-4 border-primary rounded-[36px] bg-base-100">
   <section class="flex items-center gap-4">
     <ThemeToggle client:load />
     <div class="flex gap-1">
@@ -50,9 +50,7 @@ const { commonTranslations } = Astro.locals
     </a>
   </nav>
 
-  <button class="btn btn-primary rounded-full">
+  <button class="btn btn-primary rounded-full text-sm sm:text-base">
     {commonTranslations['actions.hireMe']}
   </button>
 </header>
-
-<script></script>

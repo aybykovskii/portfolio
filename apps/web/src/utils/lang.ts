@@ -6,10 +6,14 @@ export const getTranslatedKey = (key: string, common: Record<string, string>) =>
   common[key] ?? 'Could not find translation'
 
 export const getTranslated = <
-  Entry extends { translations: Record<Lang, Record<string, string>> }
->(entry: Entry, lang: Lang): Omit<Entry, 'translations'> & Entry['translations'][Lang] => {
+  Entry extends { translations: Record<Lang, Record<string, string>> },
+>(entry: Entry, lang: Lang): Translated<Entry> => {
   return {
     ...entry,
     ...entry.translations[lang],
-  } as Omit<Entry, 'translations'> & Entry['translations'][Lang]
+  } as Translated<Entry>
 }
+
+export type Translated<T extends { translations: Record<Lang, Record<string, string>> }> =
+  & Omit<T, 'translations'>
+  & T['translations'][Lang]

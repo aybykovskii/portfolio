@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content'
 import { ChevronRight } from 'lucide-react'
 
+import type { CommonTranslations } from '@/collections/types'
 import * as Icons from '@/components/icons'
 import type { Lang, WithKey } from '@/types'
 
@@ -8,12 +9,16 @@ import { TechnologiesList } from '../TechnologiesList'
 
 type Props = WithKey<{
   lang: Lang
+  commonTranslations: CommonTranslations
   experience: CollectionEntry<'experiences'>['data']
+  technologies: CollectionEntry<'technologies'>[]
 }>
 
 export const ExperienceCard = ({
   lang,
-  experience: { position, company, companyUrl, start, end, technologies, location, translations },
+  commonTranslations,
+  experience: { position, company, companyUrl, start, end, location, translations },
+  technologies,
 }: Props) => {
   const achievementsList = translations[lang].achievements
 
@@ -27,7 +32,7 @@ export const ExperienceCard = ({
             href={companyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 text-accent font-semibold leading-snug"
+            className="flex items-center gap-3 text-secondary hover:text-primary transition-colors duration-200 font-semibold leading-snug"
           >
             {company}
             <Icons.External size={14} />
@@ -49,20 +54,20 @@ export const ExperienceCard = ({
       <p className="text-base leading-relaxed">{translations[lang].description}</p>
 
       {!!achievementsList.length && (
-        <details className="group">
-          <summary className="flex items-start gap-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        <details className="group collapse">
+          <summary className="flex items-center gap-3 cursor-pointer [&::-webkit-details-marker]:hidden collapse-title p-0">
             <ChevronRight
-              size={32}
+              size={24}
               color="var(--color-primary)"
               className="transition-transform duration-200 group-open:rotate-90"
             />
-            {translations[lang].achievements}
+            <span className="text-base-content font-semibold leading-snug">{commonTranslations['experience.achievements']}</span>
           </summary>
-          <ul className="flex flex-col gap-3 mt-3">
+          <ul className="flex flex-col gap-3 collapse-content">
             {achievementsList.map((achievement) => (
               <li
                 key={achievement}
-                className="text-base-content text-base before:content-['•'] before:mr-3 before:text-accent"
+                className="text-base-content text-base before:mr-3 before:text-primary before:content-['-']"
               >
                 {achievement}
               </li>
@@ -71,7 +76,7 @@ export const ExperienceCard = ({
         </details>
       )}
 
-      {/* <TechnologiesList technologies={technologies} /> */}
+      {!!technologies.length && <TechnologiesList technologies={technologies} />}
     </div>
   )
 }

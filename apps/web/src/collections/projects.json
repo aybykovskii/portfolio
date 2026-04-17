@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "slug": "daaspil",
     "title": "Daaspil Digital Store",
     "images": [],
@@ -26,6 +27,7 @@
     }
   },
   {
+    "id": 2,
     "slug": "guidegram",
     "title": "Guidegram",
     "images": ["/images/projects/guidegram.png"],
@@ -36,8 +38,11 @@
       "redis",
       "nodejs"
     ],
-    "button": null,
-    "url": "https://github.com/toro-devs/guidegram-preview",
+    "button": {
+      "text": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/toro-devs/guidegram-preview"
+    },
     "translations": {
       "en": {
         "description": "Production Telegram commerce bot for a content creator to sell digital products — sole developer, end-to-end from architecture to deployment. Integrated YooKassa and Robokassa payment APIs with full paywall logic. Built discount and segmented broadcast features. Owned full infrastructure: CI/CD pipeline, server provisioning, and deployment."
@@ -51,6 +56,7 @@
     }
   },
   {
+    "id": 3,
     "slug": "baby-vita-dent",
     "title": "Baby Vita Dent",
     "images": [],

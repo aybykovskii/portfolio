@@ -56,6 +56,6 @@
     "https://plugins.dprint.dev/typescript-0.95.11.wasm",
     "https://plugins.dprint.dev/json-0.20.0.wasm",
     "https://plugins.dprint.dev/g-plane/malva-v0.14.3.wasm",
-    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.25.1.wasm"
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.27.0.wasm"
   ]
 }

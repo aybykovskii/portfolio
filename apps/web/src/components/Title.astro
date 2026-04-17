@@ -1,0 +1,28 @@
+---
+import type { Bio } from '@/collections/types'
+import type { Lang } from '@/types'
+import type { Translated } from '@/utils/lang'
+
+interface Props {
+  lang: Lang
+  bio: Translated<Bio>
+}
+
+const { highlight, position } = Astro.props.bio
+
+const isStartsWithHighlight = position.startsWith(highlight)
+const restPosition = position.replace(highlight, '')
+---
+<h1 class="flex flex-col flex-wrap gap-3.5">
+  {isStartsWithHighlight ? (
+    <>
+      <span class="portfolio-title-main">{highlight}</span>
+      <span class="portfolio-title-rest">{restPosition}</span>
+    </>
+  ) : (
+     <>
+       <span class="portfolio-title-rest">{restPosition}</span>
+       <span class="portfolio-title-main">{highlight}</span>
+     </>
+   )}
+</h1>

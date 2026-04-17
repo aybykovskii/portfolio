@@ -1,11 +1,10 @@
 {
-"include": [".astro/types.d.ts", "**/*"],
+  "include": [".astro/types.d.ts", "**/*"],
   "compilerOptions": {
     "target": "ESNext",
     "jsx": "react-jsx",
     "module": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "types": ["vite/client"],
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "noEmit": true,
@@ -30,8 +29,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@convex/*": ["./convex/*"],
-    },
-
+      "@convex/*": ["./convex/*"]
+    }
   }
 }

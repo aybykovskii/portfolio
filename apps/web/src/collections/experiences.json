@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "slug": "42",
     "company": "42 LLC",
     "companyUrl": "https://answer-42.ru",
@@ -53,6 +54,7 @@
     }
   },
   {
+    "id": 2,
     "slug": "urban-it",
     "company": "Urban IT",
     "companyUrl": null,
@@ -97,6 +99,7 @@
     }
   },
   {
+    "id": 3,
     "slug": "freelance",
     "company": "Freelance",
     "companyUrl": null,

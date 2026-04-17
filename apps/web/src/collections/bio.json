@@ -1,9 +1,18 @@
 {
   "avatar": "/images/avatar.png",
   "contacts": {
-    "email": "aybykovskii@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/aybykovskii/",
-    "github": "https://github.com/aybykovskii"
+    "email": {
+      "class": "fa-regular fa-envelope",
+      "value": "mailto:aybykovskii@gmail.com"
+    },
+    "linkedin": {
+      "class": "fa-brands fa-linkedin",
+      "value": "https://www.linkedin.com/in/aybykovskii/"
+    },
+    "github": {
+      "class": "fa-brands fa-github",
+      "value": "https://github.com/aybykovskii"
+    }
   },
   "translations": {
     "en": {

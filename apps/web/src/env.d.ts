@@ -2,6 +2,6 @@
 
 declare namespace App {
   interface Locals {
-    commonTranslations: Record<import('./collections/types').CommonKey, string>
+    commonTranslations: import('./collections/types').CommonTranslations
   }
 }

@@ -4,12 +4,17 @@ import { lang } from '@/types'
 
 import rawBio from '../bio.json'
 
+const contactSchema = z.object({
+  class: z.string(),
+  value: z.string(),
+})
+
 const bioSchema = z.object({
   avatar: z.string().optional(),
   contacts: z.object({
-    email: z.string(),
-    linkedin: z.string(),
-    github: z.string(),
+    email: contactSchema,
+    linkedin: contactSchema,
+    github: contactSchema,
   }),
   translations: z.record(lang, z.object({
     description: z.string(),
@@ -22,4 +27,3 @@ const bioSchema = z.object({
 
 export type Bio = z.infer<typeof bioSchema>
 export const bio = bioSchema.parse(rawBio)
-

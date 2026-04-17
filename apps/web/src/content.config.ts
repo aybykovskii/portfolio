@@ -6,7 +6,6 @@ import { lang } from './types'
 
 const base = 'src/collections'
 
-
 const technologies = defineCollection({
   loader: file(`${base}/technologies.json`),
   schema: z.object({
@@ -25,6 +24,7 @@ const experienceTranslationSchema = z.object({
 const experiences = defineCollection({
   loader: file(`${base}/experiences.json`),
   schema: z.object({
+    id: z.number(),
     slug: z.string(),
     company: z.string(),
     companyUrl: z.union([z.string(), z.null()]),
@@ -44,6 +44,7 @@ const translationSchema = z.object({
 const projects = defineCollection({
   loader: file(`${base}/projects.json`),
   schema: z.object({
+    id: z.number(),
     slug: z.string(),
     title: z.string(),
     images: z.array(z.string()),
@@ -51,6 +52,7 @@ const projects = defineCollection({
     technologies: z.array(z.string()),
     button: z.object({
       text: z.string(),
+      icon: z.string(),
       url: z.string(),
     }).nullable(),
     url: z.string().optional(),
