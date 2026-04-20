@@ -5,45 +5,44 @@ import { lang as langs } from '@/types/lang'
 
 import { ThemeToggle } from './ThemeToggle'
 
-export interface Props {}
-export function getStaticPaths() {
+interface Props {}
+export function getStaticPaths () {
   return langs.options.map((lang) => ({ params: { lang } }))
 }
 
-const lang = Astro.params.lang
-const path = Astro.url.pathname.replace(`/${lang}`, '')
+const currentLang = Astro.params.lang
+const path = Astro.url.pathname.replace(`/${currentLang}`, '')
 const { commonTranslations } = Astro.locals
 ---
 
 <header class="sticky top-4 flex z-10 items-center justify-between gap-2 px-4 sm:px-6 py-3 border-4 border-primary rounded-[36px] bg-base-100">
   <section class="flex items-center gap-4">
     <ThemeToggle client:load />
+
     <div class="flex gap-1">
-      {
-        langs.options.map((lang, index) => (
-          <>
-            {!!index && <span class="text-base-content/40">/</span>}
-            <a
-              href={getRelativeLocaleUrl(lang, path)}
-              class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
-            >
-              {lang}
-            </a>
-          </>
-        ))
-      }
+      {langs.options.map((lang, index) => (
+        <>
+          {!!index && <span class="text-base-content/40">/</span>}
+          <a
+            href={getRelativeLocaleUrl(lang, path)}
+            class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
+          >
+            {lang}
+          </a>
+        </>
+      ))}
     </div>
   </section>
 
   <nav class="flex items-center gap-4">
     <a
-      href={getRelativeLocaleUrl(lang, 'about')}
+      href={getRelativeLocaleUrl(currentLang, 'about')}
       class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
     >
       {commonTranslations['routes.about']}
     </a>
     <a
-      href={getRelativeLocaleUrl(lang, 'projects')}
+      href={getRelativeLocaleUrl(currentLang, 'projects')}
       class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
     >
       {commonTranslations['routes.projects']}

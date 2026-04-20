@@ -1,0 +1,68 @@
+---
+/* eslint-disable react/jsx-key */
+import type { CollectionEntry } from 'astro:content'
+import { Calendar, ChevronRight, MapPin } from 'lucide-react'
+
+import type { CommonTranslations } from '@/collections/types'
+import type { Lang } from '@/types'
+
+import { LinkTitle } from './LinkTitle'
+import { TechnologiesList } from './TechnologiesList'
+
+interface Props {
+  lang: Lang
+  commonTranslations: CommonTranslations
+  experience: CollectionEntry<'experiences'>['data']
+  technologies: CollectionEntry<'technologies'>[]
+}
+
+const {
+  lang,
+  commonTranslations,
+  experience: { position, company, companyUrl, start, end, location, translations },
+  technologies,
+} = Astro.props
+
+const achievementsList = translations[lang].achievements
+---
+<div class="card card-body card-border shadow-sm">
+  <h3 class="card-title">{position}</h3>
+
+  <LinkTitle href={companyUrl} title={company} />
+
+  <div class="flex gap-3">
+    <span class="flex items-center gap-2 text-base-content/60 text-sm">
+      <Calendar size={14} />
+      {start} – {end}
+    </span>
+    <span class="flex items-center gap-2 text-base-content/60 text-sm">
+      <MapPin size={14} />
+      {location}
+    </span>
+  </div>
+
+  <p class="text-base leading-relaxed">{translations[lang].description}</p>
+
+  <details class="group collapse">
+    <summary class="flex items-center gap-3 cursor-pointer collapse-title pl-0">
+      <ChevronRight
+        size={18}
+        color="var(--color-primary)"
+        className="transition-transform duration-200 group-open:rotate-90"
+      />
+      <span class="text-base-content leading-snug">
+        {commonTranslations['experience.achievements']}
+      </span>
+    </summary>
+
+    <ul class="flex flex-col gap-3 border-l-primary border-l ml-3 collapse-content">
+      {achievementsList.map((achievement) => (
+        <li class="text-base-content text-base before:mr-3 before:text-primary before:content-['-']">
+          {achievement}
+        </li>
+      ))}
+    </ul>
+  </details>
+
+  <TechnologiesList technologies={technologies} />
+</div>

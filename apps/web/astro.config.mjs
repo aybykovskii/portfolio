@@ -3,7 +3,7 @@ import path from 'node:path'
 import node from '@astrojs/node'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,6 +18,17 @@ export default defineConfig({
 
   trailingSlash: 'ignore',
 
+  env: {
+    schema: {
+      PROJECT_DETAILS_ENABLED: envField.boolean({
+        default: false,
+        context: 'server',
+        access: 'public',
+        optional: true,
+      }),
+    },
+  },
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ru', 'es'],
@@ -27,6 +38,10 @@ export default defineConfig({
     },
   },
 
+  server: {
+    port: 4333,
+  },
+
   vite: {
     resolve: {
       alias: {
@@ -34,8 +49,10 @@ export default defineConfig({
       },
     },
     plugins: [tailwindcss()],
-    server: {
-    }
+  },
+
+  devToolbar: {
+    enabled: false,
   },
 
   adapter: node({

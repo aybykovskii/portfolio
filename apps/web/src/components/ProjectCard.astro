@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import clsx from 'clsx'
+
+import type { CommonTranslations } from '@/collections/types'
+import type { Lang } from '@/types'
+import { getIconUrl } from '@/utils'
+
+import { LinkTitle } from './LinkTitle'
+
+interface Props {
+  lang: Lang
+  project: CollectionEntry<'projects'>['data']
+  commonTranslations: CommonTranslations
+  isProjectDetailsEnabled: boolean
+}
+
+const {
+  lang,
+  project: { slug, title, translations, status, images, button, url },
+  commonTranslations,
+  isProjectDetailsEnabled,
+} = Astro.props
+---
+<div class="card overflow-hidden card-border shadow-sm">
+  <img src={images[0] ?? 'https://placehold.co/600x400'} alt={title} class="w-full h-full object-cover" />
+
+  <div class="card-body gap-6">
+    <div class="flex items-center justify-between">
+      <LinkTitle href={url} title={title} className="card-title" as="h3" />
+
+      <span class="badge badge-secondary badge-outline">
+        {status}
+      </span>
+    </div>
+
+    <p>{translations[lang].description}</p>
+
+    <div class="card-actions">
+      {isProjectDetailsEnabled && (
+        <a href={`/${lang}/projects/${slug}`}>
+          <button class="btn btn-primary">{commonTranslations['actions.details']}</button>
+        </a>
+      )}
+
+      {button && (
+        <a href={button.url} target="_blank" rel="noreferrer">
+          <button class={clsx('btn btn-secondary gap-2')}>
+            <img width={16} height={16} src={getIconUrl(button.icon)} alt={button.icon} />
+            <span>{button.text}</span>
+          </button>
+        </a>
+      )}
+    </div>
+  </div>
+</div>
