@@ -1,5 +1,4 @@
 ---
-/* eslint-disable react/jsx-key */
 import type { CollectionEntry } from 'astro:content'
 import { Calendar, ChevronRight, MapPin } from 'lucide-react'
 
@@ -24,6 +23,17 @@ const {
 } = Astro.props
 
 const achievementsList = translations[lang].achievements
+
+const subInfo = [
+  {
+    icon: Calendar,
+    value: `${start} – ${end}`,
+  },
+  {
+    icon: MapPin,
+    value: location,
+  },
+]
 ---
 <div class="card card-body card-border shadow-sm">
   <h3 class="card-title">{position}</h3>
@@ -31,14 +41,12 @@ const achievementsList = translations[lang].achievements
   <LinkTitle href={companyUrl} title={company} />
 
   <div class="flex gap-3">
-    <span class="flex items-center gap-2 text-base-content/60 text-sm">
-      <Calendar size={14} />
-      {start} – {end}
-    </span>
-    <span class="flex items-center gap-2 text-base-content/60 text-sm">
-      <MapPin size={14} />
-      {location}
-    </span>
+    {subInfo.map(({ icon: Icon, value }) => (
+      <span class="flex items-center gap-2 text-base-content/60 text-sm">
+        <Icon size={14} />
+        {value}
+      </span>
+    ))}
   </div>
 
   <p class="text-base leading-relaxed">{translations[lang].description}</p>
@@ -55,7 +63,7 @@ const achievementsList = translations[lang].achievements
       </span>
     </summary>
 
-    <ul class="flex flex-col gap-3 border-l-primary border-l ml-3 collapse-content">
+    <ul class="flex flex-col gap-3 border-l-primary border-l ml-[9px] collapse-content">
       {achievementsList.map((achievement) => (
         <li class="text-base-content text-base before:mr-3 before:text-primary before:content-['-']">
           {achievement}

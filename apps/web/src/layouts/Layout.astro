@@ -1,17 +1,24 @@
 ---
 import { ClientRouter } from 'astro:transitions'
 
-import Header from '@/containers/Header/Header.astro'
+import LangToggle from '@/components/LangToggle.astro'
+import ThemeToggle from '@/components/ThemeToggle.astro'
 
+import { Logo } from './Logo'
 import '../styles/root.css'
 import '../styles/reset.css'
 
 const { title, lang } = Astro.props
+const { commonTranslations } = Astro.locals
 ---
 
 <!DOCTYPE html>
 <html lang={lang} data-theme="dracula">
   <head>
+    <script is:inline>
+    const stored = JSON.parse(localStorage.getItem('theme') || 'null')
+    document.documentElement.dataset.theme = stored === 'lofi' ? 'lofi' : 'dracula'
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -25,8 +32,22 @@ const { title, lang } = Astro.props
     <title>{title}</title>
   </head>
   <body>
+    <div class="sticky top-4 z-10 flex items-start justify-between px-4">
+      <div class="flex items-center gap-2 header-island">
+        <button class="w-8 h-8 text-base-content btn btn-ghost btn-circle">
+          <Logo />
+        </button>
+        <button class="btn btn-primary btn-sm rounded-full">
+          {commonTranslations?.['actions.contactMe']}
+        </button>
+      </div>
+
+      <div class="flex gap-2 header-island">
+        <ThemeToggle />
+        <LangToggle currentLang={lang} />
+      </div>
+    </div>
     <main>
-      <Header />
       <ClientRouter />
       <slot lang={lang} />
     </main>

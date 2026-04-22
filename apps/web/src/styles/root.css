@@ -46,15 +46,15 @@
   --color-primary-content: oklch(100% 0 0);
   --color-secondary: oklch(75.461% 0.183 346.812);
   --color-secondary-content: oklch(0% 0 0);
-  --color-accent: oklch(83.392% 0.124 66.558);
+  --color-accent: oklch(74% 0.16 232.661);
   --color-accent-content: oklch(16.678% 0.024 66.558);
   --color-neutral: oklch(39.445% 0.032 275.524);
   --color-neutral-content: oklch(87.889% 0.006 275.524);
-  --color-info: oklch(88.263% 0.093 212.846);
+  --color-info: oklch(86% 0.127 207.078);
   --color-info-content: oklch(17.652% 0.018 212.846);
   --color-success: oklch(87.099% 0.219 148.024);
   --color-success-content: oklch(17.419% 0.043 148.024);
-  --color-warning: oklch(95.533% 0.134 112.757);
+  --color-warning: oklch(87% 0.169 91.605);
   --color-warning-content: oklch(19.106% 0.026 112.757);
   --color-error: oklch(68.22% 0.206 24.43);
   --color-error-content: oklch(13.644% 0.041 24.43);
@@ -87,9 +87,9 @@
   --color-neutral-content: oklch(100% 0 0);
   --color-info: oklch(79.54% 0.103 205.9);
   --color-info-content: oklch(15.908% 0.02 205.9);
-  --color-success: oklch(90.13% 0.153 164.14);
+  --color-success: oklch(72% 0.219 149.579);
   --color-success-content: oklch(18.026% 0.03 164.14);
-  --color-warning: oklch(88.37% 0.135 79.94);
+  --color-warning: oklch(88.8% 0.37 79.7);
   --color-warning-content: oklch(17.674% 0.027 79.94);
   --color-error: oklch(78.66% 0.15 28.47);
   --color-error-content: oklch(15.732% 0.03 28.47);
@@ -107,6 +107,9 @@
   --font-family: 'Inter', -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', -apple-system, monospace;
   --font-family-pixel: 'Pixelify Sans', -apple-system, sans-serif;
+
+  --fa-width: 16px;
+  --fa-height: 16px;
 }
 
 body {
@@ -143,11 +146,16 @@ main {
 }
 
 .portfolio-title-main {
-  font-size: clamp(52px, 8vw, 106px);
-  @apply text-primary font-semibold /*text-[52px] sm:text-[80px] lg:text-[106px]*/ leading-none w-full;
+  font-size: clamp(48px, 23cqw, 280px);
+  @apply text-primary font-bold leading-none w-full;
 }
 
 .portfolio-title-rest {
-  font-size: clamp(45px, 6vw, 100px);
-  @apply text-base-content font-semibold /*text-[32px] sm:text-[48px] lg:text-[60px]*/ leading-none w-full;
+  font-size: clamp(26px, 11cqw, 140px);
+  text-align-last: justify;
+  @apply text-base-content font-semibold leading-none w-full;
+}
+
+.header-island {
+  @apply p-2 rounded-full bg-base-100 border-2 border-base-300 shadow-lg;
 }

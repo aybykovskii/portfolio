@@ -4,7 +4,6 @@ import clsx from 'clsx'
 
 import type { CommonTranslations } from '@/collections/types'
 import type { Lang } from '@/types'
-import { getIconUrl } from '@/utils'
 
 import { LinkTitle } from './LinkTitle'
 
@@ -22,15 +21,16 @@ const {
   isProjectDetailsEnabled,
 } = Astro.props
 ---
-<div class="card overflow-hidden card-border shadow-sm">
-  <img src={images[0] ?? 'https://placehold.co/600x400'} alt={title} class="w-full h-full object-cover" />
+<div class="card card-xm sm:card-sm md:card-md lg:card-lg overflow-hidden card-border shadow-sm">
+  <img src={images[0] ?? 'https://placehold.co/600x400'} alt={title} />
 
   <div class="card-body gap-6">
     <div class="flex items-center justify-between">
       <LinkTitle href={url} title={title} className="card-title" as="h3" />
 
-      <span class="badge badge-secondary badge-outline">
-        {status}
+      <span class:list={['badge badge-outline', status === 'completed' ? 'badge-success' : 'badge-warning']}>
+        <span class="hidden sm:block">{status}</span>
+        <i class:list={['fa-solid', 'sm:[--fa-display:none]', status === 'completed' ? 'fa-check' : 'fa-clock']}></i>
       </span>
     </div>
 
@@ -45,8 +45,8 @@ const {
 
       {button && (
         <a href={button.url} target="_blank" rel="noreferrer">
-          <button class={clsx('btn btn-secondary gap-2')}>
-            <img width={16} height={16} src={getIconUrl(button.icon)} alt={button.icon} />
+          <button class={clsx('btn btn-ghost border-base-content gap-2')}>
+            <i class={`fa-brands fa-${button.icon} fa-lg`} />
             <span>{button.text}</span>
           </button>
         </a>

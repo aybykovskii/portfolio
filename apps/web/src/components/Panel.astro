@@ -1,0 +1,76 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Calendar, MapPin } from 'lucide-react'
+
+import type { Bio } from '@/collections/types'
+import type { Lang } from '@/types'
+import { getProgressPercent, getTranslated } from '@/utils'
+
+import { Bar } from './Bar'
+
+interface Props {
+  lang: Lang
+  bio: Bio
+  languages?: CollectionEntry<'languages'>[]
+  skills?: CollectionEntry<'technologies'>[]
+}
+
+const { bio, languages, skills, lang } = Astro.props
+const { commonTranslations } = Astro.locals
+
+const translatedBio = getTranslated(bio, lang)
+---
+<aside class="flex flex-col gap-3 w-full sm:grid sm:grid-cols-2 sm:grid-rows-5 sm:gap-6 xl:flex xl:flex-col">
+  <section class="flex flex-col items-center justify-center gap-2 p-6 bg-base-200 shadow rounded-xl border border-base-300 sm:col-span-1 sm:row-span-5">
+    <div class="avatar avatar-online">
+      <div class="aspect-square w-32 rounded-full">
+        <img
+          src="/images/avatar.png"
+          alt={translatedBio.name}
+          class="object-cover"
+        />
+      </div>
+    </div>
+
+    <h3 class="text-base-content font-semibold text-lg">{translatedBio.name}</h3>
+    <span class="text-base-content text-sm leading-snug">{translatedBio.position}</span>
+
+    <span class="flex items-center gap-1 text-base-content/60 text-sm leading-snug">
+      <MapPin size={14} />
+      {translatedBio.location}
+    </span>
+    <span class="flex items-center gap-1 text-base-content/60 text-sm leading-snug">
+      <Calendar size={14} />
+      {commonTranslations['status.available']}
+    </span>
+  </section>
+
+  <section class="flex flex-col items-center gap-2 p-4 bg-base-200 shadow rounded-xl border border-base-300 sm:col-span-1 sm:row-span-1">
+    <ul class="flex justify-evenly w-full gap-4">
+      {Object.values(bio.contacts).map(({ class: className, value }) => (
+        <a href={value} class="hover:text-primary transition-colors duration-300">
+          <i class:list={[className, 'fa-lg']} />
+        </a>
+      ))}
+    </ul>
+  </section>
+
+  <section class="flex flex-col items-center justify-center gap-2 p-6 bg-base-200 shadow rounded-xl border border-base-300 sm:col-span-1 sm:row-span-3">
+    <ul class="flex flex-col w-full gap-2">
+      {languages?.map(({ data: language }) => (
+        <Bar
+          title={language.translations[lang].name}
+          progress={getProgressPercent(language.level * 2)}
+        />
+      ))}
+    </ul>
+  </section>
+
+  <section class="flex flex-col gap-2 sm:col-span-1 sm:row-span-1">
+    <ul class="flex flex-wrap justify-evenly gap-2">
+      {skills?.filter(({ data: skill }) => skill.level === 5).map((skill) => (
+        <li class="badge badge-primary">{skill.data.name}</li>
+      ))}
+    </ul>
+  </section>
+</aside>

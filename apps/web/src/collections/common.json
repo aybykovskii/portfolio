@@ -14,6 +14,11 @@
     "ru": "Нанять меня",
     "es": "Contrátame"
   },
+  "actions.contactMe": {
+    "en": "Contact me",
+    "ru": "Связаться",
+    "es": "Contáctame"
+  },
   "actions.details": {
     "en": "Details",
     "ru": "Подробнее",

@@ -1,0 +1,64 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { Languages } from 'lucide-react'
+
+import { type Lang, lang as langs } from '@/types/lang'
+
+interface Props {
+  currentLang: Lang
+  className?: string
+}
+
+const { currentLang, className } = Astro.props
+
+const path = Astro.url.pathname.replace(`/${currentLang}`, '')
+---
+
+<div class:list={['dropdown dropdown-center', className]}>
+  <button tabindex="0" class="btn btn-ghost btn-sm" aria-label="Select language">
+    <Languages className="w-4" />
+  </button>
+
+  <ul
+    tabindex="0"
+    class="dropdown-content menu menu-sm bg-base-100 border-2 border-base-300 rounded-2xl z-10 mt-3 p-2 shadow-md"
+  >
+    {langs.options.map((lang) => (
+      <li>
+        <a
+          href={getRelativeLocaleUrl(lang, path)}
+          data-lang-link
+          class:list={[
+            'rounded-lg justify-center font-medium text-base px-3 py-2',
+            'sm:text-sm',
+            lang === currentLang && 'text-primary',
+          ]}
+        >
+          {lang}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  function bindLangLinks() {
+    document.querySelectorAll<HTMLAnchorElement>('[data-lang-link]').forEach((link) => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem('langScrollY', String(window.scrollY))
+      })
+    })
+  }
+
+  bindLangLinks()
+
+  document.addEventListener('astro:page-load', () => {
+    bindLangLinks()
+
+    const saved = sessionStorage.getItem('langScrollY')
+    if (saved !== null) {
+      sessionStorage.removeItem('langScrollY')
+      window.scrollTo({ top: Number(saved), behavior: 'instant' })
+    }
+  })
+</script>

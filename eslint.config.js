@@ -29,12 +29,6 @@ export default [
   ...tseslint.configs.stylisticTypeChecked,
   ...eslintPluginAstro.configs.recommended,
   {
-    files: ['*.astro'],
-    rules: {
-      'react/no-unknown-property': 'off',
-    },
-  },
-  {
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -63,6 +57,16 @@ export default [
 
   // A11y
   jsxA11yPlugin.flatConfigs.recommended,
+  // Astro overrides — после React-конфигов, чтобы не перекрывались
+  {
+    files: ['**/*.astro'],
+    rules: {
+      'react/no-unknown-property': 'off',
+      'react/jsx-key': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'jsx-a11y/anchor-is-valid': 'off',
+    },
+  },
   // Custom & Overrides
   {
     plugins: {

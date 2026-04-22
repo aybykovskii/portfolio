@@ -1,6 +1,4 @@
 ---
-export const prerender = false
-/* eslint-disable react/jsx-key */
 import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
 import { getEntries } from 'astro:content'
@@ -8,11 +6,13 @@ import { PROJECT_DETAILS_ENABLED } from 'astro:env/server'
 
 import { bio } from '@/collections/types'
 import ExperienceCard from '@/components/ExperienceCard.astro'
-import { Panel } from '@/components/Panel'
+import Panel from '@/components/Panel.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
 import Title from '@/components/Title.astro'
 import type { Lang } from '@/types'
 import { getTranslated } from '@/utils'
+
+export const prerender = true
 
 interface Props {
   lang: Lang
@@ -35,8 +35,7 @@ for (const experience of experiences) {
 }
 ---
 
-<div class="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-8 xl:gap-12 text-base-content" transition:persist="portfolio">
-  <!-- 1. Заголовок — первым на мобиле, в левой колонке (row 1) на xl -->
+<div class="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-8 xl:gap-12 text-base-content">
   <section class="order-1 xl:col-start-1 xl:row-start-1 flex flex-col items-start gap-6">
     <h1 class="flex flex-wrap gap-3.5">
       <Title lang={lang} bio={translatedBio} />
@@ -46,12 +45,10 @@ for (const experience of experiences) {
     </p>
   </section>
 
-  <!-- 2. Сайд панель — второй на мобиле, в правой колонке (rows 1–2) на xl -->
   <div class="order-2 xl:col-start-2 xl:row-start-1 xl:row-span-2 xl:sticky xl:top-[155px] xl:self-start">
     <Panel bio={bio} languages={languages} skills={technologies} lang={lang} />
   </div>
 
-  <!-- 3. Основной контент — третьим на мобиле, в левой колонке (row 2) на xl -->
   <section class="order-3 xl:col-start-1 xl:row-start-2 flex flex-col gap-6 min-w-0">
     <section class="flex flex-col gap-4">
       <h2 class="mb-6 text-base-content font-semibold text-3xl">

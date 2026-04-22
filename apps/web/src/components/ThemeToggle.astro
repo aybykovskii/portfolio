@@ -1,0 +1,46 @@
+---
+import clsx from 'clsx'
+import { MoonStar, Sun } from 'lucide-react'
+
+interface Props {
+  className?: string
+}
+
+const { className } = Astro.props
+---
+<label class={clsx('swap swap-rotate w-fit btn btn-sm btn-ghost', className)}>
+  <input type="checkbox" id="theme-toggle" />
+
+  <span class="swap-off icon-light"><Sun className="w-4" /></span>
+  <span class="swap-on icon-dark"><MoonStar className="w-4" /></span>
+</label>
+
+<script>
+import { themes, type Theme } from '@/types'
+import { localState } from '@/utils'
+
+const getCurrentTheme = (): Theme => {
+  const stored = localState.get('theme')
+
+  return themes.options.includes(stored) ? stored : 'dracula'
+}
+
+const getIsOn = (): boolean => getCurrentTheme() === 'dracula'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const checkbox = document.getElementById('theme-toggle') as HTMLInputElement
+  checkbox.checked = getIsOn()
+})
+
+document.getElementById('theme-toggle')?.addEventListener('change', (ev) => {
+  const isOn = getIsOn()
+  const next = isOn ? 'lofi' : 'dracula'
+
+  const checkbox = ev.target as HTMLInputElement
+
+  checkbox.checked = !isOn
+  document.documentElement.dataset.theme = next
+
+  localState.set('theme', next)
+})
+</script>
