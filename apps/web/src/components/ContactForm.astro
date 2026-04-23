@@ -64,11 +64,14 @@ const { commonTranslations } = Astro.locals
 </section>
 
 <script>
+import { actions } from 'astro:actions'
+
 const form = document.getElementById('contact-form') as HTMLFormElement | null
 const success = document.getElementById('contact-success')
 
-form?.addEventListener('submit', (e) => {
+form?.addEventListener('submit', async (e) => {
   e.preventDefault()
+
   if (!form.checkValidity()) {
     form.reportValidity()
     return
@@ -79,19 +82,15 @@ form?.addEventListener('submit', (e) => {
   btn.disabled = true
   loader.classList.remove('hidden')
 
-  // TODO: wire up a real backend (e.g. Formspree, Resend)
-  setTimeout(() => {
+  const { error } = await actions.contact(new FormData(form))
+
+  btn.disabled = false
+  loader.classList.add('hidden')
+
+  if (!error) {
     form.reset()
-    btn.disabled = false
-    loader.classList.add('hidden')
     success?.classList.remove('hidden')
-
     setTimeout(() => success?.classList.add('hidden'), 5000)
-  }, 800)
+  }
 })
-function initContactForm () {
-}
-
-initContactForm()
-document.addEventListener('astro:page-load', initContactForm)
 </script>
