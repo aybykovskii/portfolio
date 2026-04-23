@@ -89,6 +89,51 @@
     "ru": "В разработке",
     "es": "En progreso"
   },
+  "sections.contact": {
+    "en": "Contact me",
+    "ru": "Связаться со мной",
+    "es": "Contáctame"
+  },
+  "contact.name": {
+    "en": "Name",
+    "ru": "Имя",
+    "es": "Nombre"
+  },
+  "contact.namePlaceholder": {
+    "en": "John Doe",
+    "ru": "Иван Иванов",
+    "es": "Juan García"
+  },
+  "contact.email": {
+    "en": "Email",
+    "ru": "Email",
+    "es": "Correo electrónico"
+  },
+  "contact.message": {
+    "en": "Message",
+    "ru": "Сообщение",
+    "es": "Mensaje"
+  },
+  "contact.messagePlaceholder": {
+    "en": "Your message...",
+    "ru": "Ваше сообщение...",
+    "es": "Tu mensaje..."
+  },
+  "contact.send": {
+    "en": "Send message",
+    "ru": "Отправить",
+    "es": "Enviar mensaje"
+  },
+  "contact.successTitle": {
+    "en": "Message sent!",
+    "ru": "Сообщение отправлено!",
+    "es": "¡Mensaje enviado!"
+  },
+  "contact.successText": {
+    "en": "I'll get back to you as soon as possible.",
+    "ru": "Я отвечу вам в ближайшее время.",
+    "es": "Me pondré en contacto contigo lo antes posible."
+  },
   "notFound.title": {
     "en": "404 - Page not found",
     "ru": "404 - Страница не найдена",

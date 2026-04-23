@@ -5,6 +5,7 @@ import { getEntries } from 'astro:content'
 import { PROJECT_DETAILS_ENABLED } from 'astro:env/server'
 
 import { bio } from '@/collections/types'
+import ContactForm from '@/components/ContactForm.astro'
 import ExperienceCard from '@/components/ExperienceCard.astro'
 import Panel from '@/components/Panel.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
@@ -98,5 +99,7 @@ for (const experience of experiences) {
         />
       ))}
     </section>
+
+    <ContactForm lang={lang} commonTranslations={commonTranslations} />
   </section>
 </div>

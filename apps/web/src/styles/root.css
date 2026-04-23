@@ -112,6 +112,10 @@
   --fa-height: 16px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;

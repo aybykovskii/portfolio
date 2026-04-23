@@ -37,9 +37,9 @@ const { commonTranslations } = Astro.locals
         <button class="w-8 h-8 text-base-content btn btn-ghost btn-circle">
           <Logo />
         </button>
-        <button class="btn btn-primary btn-sm rounded-full">
+        <a href={`/${lang}#contact`} class="btn btn-primary btn-sm rounded-full">
           {commonTranslations?.['actions.contactMe']}
-        </button>
+        </a>
       </div>
 
       <div class="flex gap-2 header-island">
