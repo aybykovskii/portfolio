@@ -7,6 +7,7 @@ import rawBio from '../bio.json'
 const contactSchema = z.object({
   class: z.string(),
   value: z.string(),
+  download: z.boolean().optional(),
 })
 
 const bioSchema = z.object({

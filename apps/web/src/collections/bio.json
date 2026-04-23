@@ -12,6 +12,11 @@
     "github": {
       "class": "fa-brands fa-github",
       "value": "https://github.com/aybykovskii"
+    },
+    "cv": {
+      "class": "fa-regular fa-file-pdf",
+      "value": "https://d18jkaylrcswn0.cloudfront.net/Aleksei_Bykovskii_CV.pdf",
+      "download": true
     }
   },
   "translations": {
