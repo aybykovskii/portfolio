@@ -12,18 +12,18 @@ const { commonTranslations } = Astro.props
 
 <section id="contact" class="flex flex-col gap-8 scroll-mt-24">
   <h2 class="text-base-content font-semibold text-3xl">
-    {commonTranslations['sections.contact']}
+    {commonTranslations.sections.contact}
   </h2>
 
   <form id="contact-form" class="flex flex-col gap-5" novalidate>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <fieldset class="fieldset">
-        <legend class="fieldset-legend">{commonTranslations['contact.name']}</legend>
+        <legend class="fieldset-legend">{commonTranslations.contact.name}</legend>
         <input
           type="text"
           name="name"
           required
-          placeholder={commonTranslations['contact.namePlaceholder']}
+          placeholder={commonTranslations.contact.namePlaceholder}
           class="input input-bordered w-full"
         />
       </fieldset>
@@ -41,19 +41,19 @@ const { commonTranslations } = Astro.props
     </div>
 
     <fieldset class="fieldset">
-      <legend class="fieldset-legend">{commonTranslations['contact.message']}</legend>
+      <legend class="fieldset-legend">{commonTranslations.contact.message}</legend>
       <textarea
         name="message"
         required
         rows="5"
-        placeholder={commonTranslations['contact.messagePlaceholder']}
+        placeholder={commonTranslations.contact.messagePlaceholder}
         class="textarea textarea-bordered w-full resize-none"
       ></textarea>
     </fieldset>
 
     <div class="flex items-center gap-4">
       <button type="submit" class="btn btn-primary rounded-full px-8">
-        {commonTranslations['contact.send']}
+        {commonTranslations.contact.send}
       </button>
 
       <div id="contact-success" class="hidden flex items-center gap-2 text-success font-medium">
@@ -62,8 +62,8 @@ const { commonTranslations } = Astro.props
           <polyline points="22 4 12 14.01 9 11.01"/>
         </svg>
         <span>
-          <span class="block">{commonTranslations['contact.successTitle']}</span>
-          <span class="block text-sm font-normal text-base-content/60">{commonTranslations['contact.successText']}</span>
+          <span class="block">{commonTranslations.contact.successTitle}</span>
+          <span class="block text-sm font-normal text-base-content/60">{commonTranslations.contact.successText}</span>
         </span>
       </div>
     </div>

@@ -8,3 +8,7 @@ export type WithKey<T> = T & {
 export type WithCommonText<T> = T & {
   commonText: any[]
 }
+
+export type Prettify<T> = {
+  [K in keyof T]: T[K]
+} & {}

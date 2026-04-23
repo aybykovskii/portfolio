@@ -1,147 +1,161 @@
 {
-  "routes.about": {
-    "en": "About",
-    "ru": "Обо мне",
-    "es": "Sobre mí"
+  "routes": {
+    "about": {
+      "en": "About",
+      "ru": "Обо мне",
+      "es": "Sobre mí"
+    },
+    "projects": {
+      "en": "Projects",
+      "ru": "Проекты",
+      "es": "Proyectos"
+    }
   },
-  "routes.projects": {
-    "en": "Projects",
-    "ru": "Проекты",
-    "es": "Proyectos"
+  "actions": {
+    "hireMe": {
+      "en": "Hire me",
+      "ru": "Нанять меня",
+      "es": "Contrátame"
+    },
+    "contactMe": {
+      "en": "Contact me",
+      "ru": "Связаться",
+      "es": "Contáctame"
+    },
+    "details": {
+      "en": "Details",
+      "ru": "Подробнее",
+      "es": "Detalles"
+    },
+    "back": {
+      "en": "Back",
+      "ru": "Назад",
+      "es": "Volver"
+    },
+    "github": {
+      "en": "GitHub",
+      "ru": "GitHub",
+      "es": "GitHub"
+    },
+    "viewProject": {
+      "en": "View project",
+      "ru": "Смотреть проект",
+      "es": "Ver proyecto"
+    }
   },
-  "actions.hireMe": {
-    "en": "Hire me",
-    "ru": "Нанять меня",
-    "es": "Contrátame"
+  "sections": {
+    "about": {
+      "en": "About",
+      "ru": "Обо мне",
+      "es": "Sobre mí"
+    },
+    "experience": {
+      "en": "Experience",
+      "ru": "Опыт",
+      "es": "Experiencia"
+    },
+    "skills": {
+      "en": "Skills",
+      "ru": "Навыки",
+      "es": "Habilidades"
+    },
+    "projects": {
+      "en": "Projects",
+      "ru": "Проекты",
+      "es": "Proyectos"
+    },
+    "portfolio": {
+      "en": "Portfolio",
+      "ru": "Портфолио",
+      "es": "Portafolio"
+    },
+    "contact": {
+      "en": "Contact me",
+      "ru": "Связаться со мной",
+      "es": "Contáctame"
+    }
   },
-  "actions.contactMe": {
-    "en": "Contact me",
-    "ru": "Связаться",
-    "es": "Contáctame"
+  "experience": {
+    "achievements": {
+      "en": "Key points",
+      "ru": "Ключевые моменты",
+      "es": "Puntos clave"
+    },
+    "present": {
+      "en": "Present",
+      "ru": "По настоящее время",
+      "es": "Actualidad"
+    }
   },
-  "actions.details": {
-    "en": "Details",
-    "ru": "Подробнее",
-    "es": "Detalles"
+  "status": {
+    "available": {
+      "en": "Available for opportunities",
+      "ru": "Открыт к предложениям",
+      "es": "Disponible para oportunidades"
+    },
+    "completed": {
+      "en": "Completed",
+      "ru": "Завершён",
+      "es": "Completado"
+    },
+    "inProgress": {
+      "en": "In progress",
+      "ru": "В разработке",
+      "es": "En progreso"
+    }
   },
-  "actions.back": {
-    "en": "Back",
-    "ru": "Назад",
-    "es": "Volver"
+  "contact": {
+    "name": {
+      "en": "Name",
+      "ru": "Имя",
+      "es": "Nombre"
+    },
+    "namePlaceholder": {
+      "en": "John Doe",
+      "ru": "Иван Иванов",
+      "es": "Juan García"
+    },
+    "email": {
+      "en": "Email",
+      "ru": "Email",
+      "es": "Correo electrónico"
+    },
+    "message": {
+      "en": "Message",
+      "ru": "Сообщение",
+      "es": "Mensaje"
+    },
+    "messagePlaceholder": {
+      "en": "Your message...",
+      "ru": "Ваше сообщение...",
+      "es": "Tu mensaje..."
+    },
+    "send": {
+      "en": "Send message",
+      "ru": "Отправить",
+      "es": "Enviar mensaje"
+    },
+    "successTitle": {
+      "en": "Message sent!",
+      "ru": "Сообщение отправлено!",
+      "es": "¡Mensaje enviado!"
+    },
+    "successText": {
+      "en": "I'll get back to you as soon as possible.",
+      "ru": "Я отвечу вам в ближайшее время.",
+      "es": "Me pondré en contacto contigo lo antes posible."
+    }
   },
-  "actions.github": {
-    "en": "GitHub",
-    "ru": "GitHub",
-    "es": "GitHub"
-  },
-  "actions.viewProject": {
-    "en": "View project",
-    "ru": "Смотреть проект",
-    "es": "Ver proyecto"
-  },
-  "sections.about": {
-    "en": "About",
-    "ru": "Обо мне",
-    "es": "Sobre mí"
-  },
-  "sections.experience": {
-    "en": "Experience",
-    "ru": "Опыт",
-    "es": "Experiencia"
-  },
-  "sections.skills": {
-    "en": "Skills",
-    "ru": "Навыки",
-    "es": "Habilidades"
-  },
-  "sections.projects": {
-    "en": "Projects",
-    "ru": "Проекты",
-    "es": "Proyectos"
-  },
-  "sections.portfolio": {
-    "en": "Portfolio",
-    "ru": "Портфолио",
-    "es": "Portafolio"
-  },
-  "experience.achievements": {
-    "en": "Key points",
-    "ru": "Ключевые моменты",
-    "es": "Puntos clave"
-  },
-  "experience.present": {
-    "en": "Present",
-    "ru": "По настоящее время",
-    "es": "Actualidad"
-  },
-  "status.available": {
-    "en": "Available for opportunities",
-    "ru": "Открыт к предложениям",
-    "es": "Disponible para oportunidades"
-  },
-  "status.completed": {
-    "en": "Completed",
-    "ru": "Завершён",
-    "es": "Completado"
-  },
-  "status.inProgress": {
-    "en": "In progress",
-    "ru": "В разработке",
-    "es": "En progreso"
-  },
-  "sections.contact": {
-    "en": "Contact me",
-    "ru": "Связаться со мной",
-    "es": "Contáctame"
-  },
-  "contact.name": {
-    "en": "Name",
-    "ru": "Имя",
-    "es": "Nombre"
-  },
-  "contact.namePlaceholder": {
-    "en": "John Doe",
-    "ru": "Иван Иванов",
-    "es": "Juan García"
-  },
-  "contact.email": {
-    "en": "Email",
-    "ru": "Email",
-    "es": "Correo electrónico"
-  },
-  "contact.message": {
-    "en": "Message",
-    "ru": "Сообщение",
-    "es": "Mensaje"
-  },
-  "contact.messagePlaceholder": {
-    "en": "Your message...",
-    "ru": "Ваше сообщение...",
-    "es": "Tu mensaje..."
-  },
-  "contact.send": {
-    "en": "Send message",
-    "ru": "Отправить",
-    "es": "Enviar mensaje"
-  },
-  "contact.successTitle": {
-    "en": "Message sent!",
-    "ru": "Сообщение отправлено!",
-    "es": "¡Mensaje enviado!"
-  },
-  "contact.successText": {
-    "en": "I'll get back to you as soon as possible.",
-    "ru": "Я отвечу вам в ближайшее время.",
-    "es": "Me pondré en contacto contigo lo antes posible."
-  },
-  "notFound.title": {
-    "en": "404 - Page not found",
-    "ru": "404 - Страница не найдена",
-    "es": "404 - Página no encontrada"
-  },
-  "notFound.description": {
-    "en": "The page you are looking for does not exist.",
-    "ru": "Страница, которую вы ищете, не существует.",
-    "es": "La página que buscas no existe."
+  "notFound": {
+    "title": {
+      "en": "404 - Page not found",
+      "ru": "404 - Страница не найдена",
+      "es": "404 - Página no encontrada"
+    },
+    "description": {
+      "en": "The page you are looking for does not exist.",
+      "ru": "Страница, которую вы ищете, не существует.",
+      "es": "La página que buscas no existe."
+    }
   }
 }

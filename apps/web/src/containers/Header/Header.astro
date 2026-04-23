@@ -27,17 +27,17 @@ const { commonTranslations } = Astro.locals
       href={getRelativeLocaleUrl(currentLang, 'about')}
       class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
     >
-      {commonTranslations['routes.about']}
+      {commonTranslations.routes.about}
     </a>
     <a
       href={getRelativeLocaleUrl(currentLang, 'projects')}
       class="text-base-content font-medium text-base transition-colors duration-300 hover:text-primary"
     >
-      {commonTranslations['routes.projects']}
+      {commonTranslations.routes.projects}
     </a>
   </nav>
 
   <button class="btn btn-primary rounded-full text-sm sm:text-base">
-    {commonTranslations['actions.contactMe']}
+    {commonTranslations.actions.contactMe}
   </button>
 </header>

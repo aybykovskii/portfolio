@@ -53,7 +53,7 @@ for (const experience of experiences) {
   <section class="order-3 xl:col-start-1 xl:row-start-2 flex flex-col gap-6 min-w-0">
     <section class="flex flex-col gap-4">
       <h2 class="mb-6 text-base-content font-semibold text-3xl">
-        {commonTranslations['sections.experience']}
+        {commonTranslations.sections.experience}
       </h2>
       {experiences?.map(({ data: experience }) => (
         <ExperienceCard
@@ -67,7 +67,7 @@ for (const experience of experiences) {
 
     <section class="flex flex-col gap-4">
       <h2 class="mb-6 text-base-content font-semibold text-3xl">
-        {commonTranslations['sections.skills']}
+        {commonTranslations.sections.skills}
       </h2>
       <ul class="flex flex-wrap gap-4">
         {technologies?.map(({ data: technology }) => (
@@ -88,7 +88,7 @@ for (const experience of experiences) {
 
     <section class="flex flex-col gap-4">
       <h2 class="mb-6 text-base-content font-semibold text-3xl">
-        {commonTranslations['sections.projects']}
+        {commonTranslations.sections.projects}
       </h2>
       {projects?.map(({ data: project }) => (
         <ProjectCard
