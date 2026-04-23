@@ -1,22 +1,16 @@
 ---
-import type { CommonTranslations } from '@/collections/types'
-import type { Lang } from '@/types'
+import { MailCheck } from 'lucide-react'
 
-interface Props {
-  lang: Lang
-  commonTranslations: CommonTranslations
-}
-
-const { commonTranslations } = Astro.props
+const { commonTranslations } = Astro.locals
 ---
 
-<section id="contact" class="flex flex-col gap-8 scroll-mt-24">
-  <h2 class="text-base-content font-semibold text-3xl">
+<section id="contact" class="main-section">
+  <h2 class="font-semibold text-3xl">
     {commonTranslations.sections.contact}
   </h2>
 
-  <form id="contact-form" class="flex flex-col gap-5" novalidate>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+  <form id="contact-form" class="flex flex-col gap-4" novalidate>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <fieldset class="fieldset">
         <legend class="fieldset-legend">{commonTranslations.contact.name}</legend>
         <input
@@ -51,53 +45,53 @@ const { commonTranslations } = Astro.props
       ></textarea>
     </fieldset>
 
-    <div class="flex items-center gap-4">
-      <button type="submit" class="btn btn-primary rounded-full px-8">
-        {commonTranslations.contact.send}
-      </button>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div id="contact-success" class="flex items-center gap-2 text-success font-medium hidden">
+        <MailCheck size={24} />
 
-      <div id="contact-success" class="hidden flex items-center gap-2 text-success font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-          <polyline points="22 4 12 14.01 9 11.01"/>
-        </svg>
         <span>
           <span class="block">{commonTranslations.contact.successTitle}</span>
           <span class="block text-sm font-normal text-base-content/60">{commonTranslations.contact.successText}</span>
         </span>
       </div>
+
+      <button type="submit" class="btn btn-primary rounded-full px-8 col-span-1 sm:col-start-2">
+        <span class="loading loading-spinner loading-xs hidden"></span>
+        {commonTranslations.contact.send}
+      </button>
     </div>
   </form>
 </section>
 
 <script>
-  function initContactForm() {
-    const form = document.getElementById('contact-form') as HTMLFormElement | null
-    const success = document.getElementById('contact-success')
+const form = document.getElementById('contact-form') as HTMLFormElement | null
+const success = document.getElementById('contact-success')
 
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault()
-      if (!form.checkValidity()) {
-        form.reportValidity()
-        return
-      }
-
-      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement
-      btn.disabled = true
-      btn.classList.add('loading')
-
-      // TODO: wire up a real backend (e.g. Formspree, Resend)
-      setTimeout(() => {
-        form.reset()
-        btn.disabled = false
-        btn.classList.remove('loading')
-        success?.classList.remove('hidden')
-
-        setTimeout(() => success?.classList.add('hidden'), 5000)
-      }, 800)
-    })
+form?.addEventListener('submit', (e) => {
+  e.preventDefault()
+  if (!form.checkValidity()) {
+    form.reportValidity()
+    return
   }
 
-  initContactForm()
-  document.addEventListener('astro:page-load', initContactForm)
+  const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement
+  const loader = btn.querySelector('span.loading-spinner') as HTMLSpanElement
+  btn.disabled = true
+  loader.classList.remove('hidden')
+
+  // TODO: wire up a real backend (e.g. Formspree, Resend)
+  setTimeout(() => {
+    form.reset()
+    btn.disabled = false
+    loader.classList.add('hidden')
+    success?.classList.remove('hidden')
+
+    setTimeout(() => success?.classList.add('hidden'), 5000)
+  }, 800)
+})
+function initContactForm () {
+}
+
+initContactForm()
+document.addEventListener('astro:page-load', initContactForm)
 </script>

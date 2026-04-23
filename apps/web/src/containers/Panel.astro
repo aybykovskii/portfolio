@@ -3,19 +3,16 @@ import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import { Calendar, MapPin } from 'lucide-react'
 
-import type { Lang } from '@/types'
+import { Bar } from '@/components/Bar'
 import { getCdnImageUrl, getProgressPercent } from '@/utils'
 
-import { Bar } from './Bar'
-
 interface Props {
-  lang: Lang
   languages?: CollectionEntry<'languages'>[]
   skills?: CollectionEntry<'technologies'>[]
 }
 
-const { languages, skills, lang } = Astro.props
-const { commonTranslations, bio } = Astro.locals
+const { languages, skills } = Astro.props
+const { commonTranslations, bio, lang } = Astro.locals
 
 const { avatar, name, position, location } = bio
 
@@ -70,7 +67,7 @@ const subInfo = [
       {languages?.map(({ data: language }) => (
         <Bar
           title={language.translations[lang].name}
-          progress={getProgressPercent(language.level * 2)}
+          progress={getProgressPercent(language.level)}
         />
       ))}
     </ul>

@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { PROJECT_DETAILS_ENABLED } from 'astro:env/server'
+
+import ProjectCard from '@/components/ProjectCard.astro'
+
+interface Props {
+  projects: CollectionEntry<'projects'>[]
+  technologiesById: Record<string, CollectionEntry<'technologies'>>
+}
+
+const { projects, technologiesById } = Astro.props
+const { commonTranslations } = Astro.locals
+---
+<section class="main-section">
+  <h2 class="font-semibold text-3xl">
+    {commonTranslations.sections.projects}
+  </h2>
+
+  {projects?.map(({ data: project }) => (
+    <ProjectCard
+      technologiesById={technologiesById}
+      project={project}
+      isProjectDetailsEnabled={PROJECT_DETAILS_ENABLED}
+    />
+  ))}
+</section>

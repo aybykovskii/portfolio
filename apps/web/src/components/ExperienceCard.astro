@@ -2,25 +2,20 @@
 import type { CollectionEntry } from 'astro:content'
 import { Calendar, ChevronRight, MapPin } from 'lucide-react'
 
-import type { CommonTranslations } from '@/collections/types'
-import type { Lang } from '@/types'
-
 import { LinkTitle } from './LinkTitle'
-import { TechnologiesList } from './TechnologiesList'
+import TechnologiesList from './TechnologiesList.astro'
 
 interface Props {
-  lang: Lang
-  commonTranslations: CommonTranslations
   experience: CollectionEntry<'experiences'>['data']
   technologies: CollectionEntry<'technologies'>[]
 }
 
 const {
-  lang,
-  commonTranslations,
   experience: { position, company, companyUrl, start, end, location, translations },
   technologies,
 } = Astro.props
+
+const { commonTranslations, lang } = Astro.locals
 
 const achievementsList = translations[lang].achievements
 

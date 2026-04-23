@@ -4,12 +4,12 @@ import { Languages } from 'lucide-react'
 
 import { type Lang, lang as langs } from '@/types/lang'
 
+const { lang: currentLang } = Astro.locals
 interface Props {
-  currentLang: Lang
   className?: string
 }
 
-const { currentLang, className } = Astro.props
+const { className } = Astro.props
 
 const path = Astro.url.pathname.replace(`/${currentLang}`, '')
 ---
@@ -42,23 +42,24 @@ const path = Astro.url.pathname.replace(`/${currentLang}`, '')
 </div>
 
 <script>
-  function bindLangLinks() {
-    document.querySelectorAll<HTMLAnchorElement>('[data-lang-link]').forEach((link) => {
-      link.addEventListener('click', () => {
-        sessionStorage.setItem('langScrollY', String(window.scrollY))
-      })
+function bindLangLinks () {
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('langScrollY', String(window.scrollY))
     })
-  }
+  })
+}
 
+bindLangLinks()
+
+document.addEventListener('astro:page-load', () => {
   bindLangLinks()
 
-  document.addEventListener('astro:page-load', () => {
-    bindLangLinks()
+  const saved = sessionStorage.getItem('langScrollY')
 
-    const saved = sessionStorage.getItem('langScrollY')
-    if (saved !== null) {
-      sessionStorage.removeItem('langScrollY')
-      window.scrollTo({ top: Number(saved), behavior: 'instant' })
-    }
-  })
+  if (saved !== null) {
+    sessionStorage.removeItem('langScrollY')
+    window.scrollTo({ top: Number(saved), behavior: 'instant' })
+  }
+})
 </script>

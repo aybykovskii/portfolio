@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+import { getIconUrl } from '@/utils'
+
+interface Props {
+  className?: string
+  technologies: CollectionEntry<'technologies'>[]
+}
+
+const { className, technologies } = Astro.props
+---
+<ul class:list={['flex flex-wrap gap-2', className]}>
+  {technologies?.map(({ data: { icon, name } }) => (
+    <li>
+      <span class="badge badge-primary badge-soft badge-sm sm:badge-lg gap-2">
+        <Image src={getIconUrl(icon)} alt={name} width={16} height={16} />
+        {name}
+      </span>
+    </li>
+  ))}
+</ul>

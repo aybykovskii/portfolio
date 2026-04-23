@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import TechnologiesList from '@/components/TechnologiesList.astro'
+
+interface Props {
+  technologies: CollectionEntry<'technologies'>[]
+}
+
+const { technologies } = Astro.props
+const { commonTranslations } = Astro.locals
+---
+<section class="main-section">
+  <h2 class="font-semibold text-3xl">
+    {commonTranslations.sections.skills}
+  </h2>
+
+  <TechnologiesList technologies={technologies} className="gap-2 sm:gap-4" />
+</section>

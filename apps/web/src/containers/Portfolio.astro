@@ -1,0 +1,73 @@
+---
+export const prerender = true
+
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import { getEntries } from 'astro:content'
+
+import { bio } from '@/collections/types'
+import ContactForm from '@/components/ContactForm.astro'
+import Title from '@/components/Title.astro'
+
+import ExperiencesSection from './ExperiencesSection.astro'
+import Panel from './Panel.astro'
+import ProjectsSection from './ProjectsSection.astro'
+import SkillsSections from './SkillsSections.astro'
+
+const { lang } = Astro.locals
+
+const projects = await getCollection('projects')
+const experiences = await getCollection('experiences')
+const technologies = await getCollection('technologies')
+const languages = await getCollection('languages')
+
+const technologiesById: Record<string, CollectionEntry<'technologies'>> = {}
+
+for (const technology of technologies) {
+  technologiesById[technology.data.id] = technology
+}
+
+const technologiesByExperiences: Record<string, CollectionEntry<'technologies'>[]> = {}
+
+for (const experience of experiences) {
+  const list = await getEntries(experience.data.technologies)
+  technologiesByExperiences[experience.data.slug] = list.filter(Boolean)
+}
+---
+
+<div
+  class:list={[
+    'grid grid-cols-1 gap-8',
+    ' xl:grid-cols-[1fr_300px] xl:gap-12',
+  ]}
+>
+  <section
+    class:list={[
+      'order-1 flex flex-col items-start gap-6',
+      ' xl:col-start-1 xl:row-start-1 ',
+    ]}
+  >
+    <h1 class="flex flex-wrap gap-3.5"><Title /></h1>
+
+    <p class="text-base-content/60 font-normal text-lg leading-relaxed">
+      {bio.translations[lang].description}
+    </p>
+  </section>
+
+  <div class:list={['order-2 xl:col-start-2 xl:row-start-1 xl:row-span-2 xl:sticky xl:top-[82px] xl:self-start']}>
+    <Panel languages={languages} skills={technologies} />
+  </div>
+
+  <section class:list={['order-3 flex flex-col gap-12', 'xl:col-start-1 xl:row-start-2']}>
+    <ExperiencesSection
+      experiences={experiences}
+      technologiesByExperiences={technologiesByExperiences}
+    />
+
+    <SkillsSections technologies={technologies} />
+
+    <ProjectsSection projects={projects} technologiesById={technologiesById} />
+
+    <ContactForm />
+  </section>
+</div>

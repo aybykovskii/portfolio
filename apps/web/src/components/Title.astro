@@ -1,19 +1,10 @@
 ---
-import type { Bio } from '@/collections/types'
-import type { Lang } from '@/types'
-import type { Translated } from '@/utils/lang'
-
-interface Props {
-  lang: Lang
-  bio: Translated<Bio>
-}
-
-const { highlight, position } = Astro.props.bio
+const { bio: { highlight, position } } = Astro.locals
 
 const isStartsWithHighlight = position.startsWith(highlight)
 const restPosition = position.replace(highlight, '')
 ---
-<h1 class="flex flex-col flex-wrap gap-3.5 w-full" style="container-type: inline-size;">
+<h1 class="flex flex-col flex-wrap gap-3.5 w-full" style="container-type: inline-size">
   {isStartsWithHighlight ? (
     <>
       <span class="portfolio-title-main">{highlight}</span>

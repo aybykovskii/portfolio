@@ -9,8 +9,8 @@ import { Logo } from './Logo'
 import '../styles/root.css'
 import '../styles/reset.css'
 
-const { title, lang } = Astro.props
-const { commonTranslations } = Astro.locals
+const { title } = Astro.props
+const { commonTranslations, lang } = Astro.locals
 ---
 
 <!DOCTYPE html>
@@ -23,6 +23,7 @@ const { commonTranslations } = Astro.locals
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <Font cssVariable="--font-inter" preload />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -30,28 +31,46 @@ const { commonTranslations } = Astro.locals
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <div class="sticky top-4 z-10 flex items-start justify-between px-4">
+    <header class="sticky top-4 z-10 flex items-start justify-between px-4">
       <div class="flex items-center gap-2 header-island">
         <button class="w-8 h-8 text-base-content btn btn-ghost btn-circle">
           <Logo />
         </button>
-        <a href={`/${lang}#contact`} class="btn btn-primary btn-sm rounded-full">
+        <button id="scroll-to-contact" class="btn btn-primary btn-sm rounded-full">
           {commonTranslations?.actions.contactMe}
-        </a>
+        </button>
       </div>
 
       <div class="flex gap-2 header-island">
         <ThemeToggle />
-        <LangToggle currentLang={lang} />
+        <LangToggle />
       </div>
-    </div>
+    </header>
+
     <main>
       <ClientRouter />
       <slot lang={lang} />
     </main>
+
+    <footer class="mt-16 border-t border-base-content/10">
+      <div class="flex items-center justify-between px-6 py-4 text-base-content/60 text-sm sm:text-base">
+        <span>© {new Date().getFullYear()} Aleksei Bykovskii</span>
+        <span>All rights reserved</span>
+      </div>
+    </footer>
+
+    <script>
+    const contactButton = document.getElementById('scroll-to-contact')
+    const contactForm = document.getElementById('contact-form')
+
+    contactButton?.addEventListener('click', () => {
+      contactForm?.scrollIntoView({ behavior: 'smooth' })
+    })
+    </script>
   </body>
 </html>

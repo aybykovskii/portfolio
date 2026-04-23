@@ -1,1 +1,1 @@
-export const getProgressPercent = (level: number) => (level / 10) * 100
+export const getProgressPercent = (level: number) => (level / 5) * 100

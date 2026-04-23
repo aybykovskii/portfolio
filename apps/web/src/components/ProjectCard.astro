@@ -2,25 +2,28 @@
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 
-import type { CommonTranslations } from '@/collections/types'
-import type { Lang } from '@/types'
 import { getCdnImageUrl } from '@/utils'
 
 import { LinkTitle } from './LinkTitle'
+import TechnologiesList from './TechnologiesList.astro'
+
+const { commonTranslations, lang } = Astro.locals
 
 interface Props {
-  lang: Lang
   project: CollectionEntry<'projects'>['data']
-  commonTranslations: CommonTranslations
+  technologiesById: Record<string, CollectionEntry<'technologies'>>
   isProjectDetailsEnabled: boolean
 }
 
 const {
-  lang,
-  project: { slug, title, translations, status, images, button, url },
-  commonTranslations,
+  technologiesById,
+  project: { slug, title, translations, status, images, button, url, technologies: technologiesSlug },
   isProjectDetailsEnabled,
 } = Astro.props
+
+const technologies = technologiesSlug.map((id) => technologiesById[id]).filter(Boolean) as CollectionEntry<
+  'technologies'
+>[]
 ---
 <div class="card card-xm sm:card-sm md:card-md lg:card-lg overflow-hidden card-border shadow-sm">
   <Image src={getCdnImageUrl(images[0] ?? '')} alt={title} class="object-cover" inferSize />
@@ -37,21 +40,25 @@ const {
 
     <p>{translations[lang].description}</p>
 
-    <div class="card-actions">
-      {isProjectDetailsEnabled && (
-        <a href={`/${lang}/projects/${slug}`}>
-          <button class="btn btn-primary">{commonTranslations.actions.details}</button>
-        </a>
-      )}
+    <TechnologiesList technologies={technologies} />
 
-      {button && (
-        <a href={button.url} target="_blank" rel="noreferrer">
-          <button class={'btn btn-ghost border-base-content gap-2'}>
-            <i class={`fa-brands fa-${button.icon} fa-lg`} />
-            <span>{button.text}</span>
-          </button>
-        </a>
-      )}
-    </div>
+    {isProjectDetailsEnabled || button && (
+      <div class="card-actions">
+        {isProjectDetailsEnabled && (
+          <a href={`/${lang}/projects/${slug}`}>
+            <button class="btn btn-primary">{commonTranslations.actions.details}</button>
+          </a>
+        )}
+
+        {button && (
+          <a href={button.url} target="_blank" rel="noreferrer">
+            <button class={'btn btn-ghost border-base-content gap-2'}>
+              <i class={`fa-brands fa-${button.icon} fa-lg`} />
+              <span>{button.text}</span>
+            </button>
+          </a>
+        )}
+      </div>
+    )}
   </div>
 </div>

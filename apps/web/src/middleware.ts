@@ -21,10 +21,11 @@ function buildTranslations (obj: Record<string, unknown>, lang: Lang): CommonTra
 }
 
 export const onRequest: MiddlewareHandler = async (context, next) => {
-  const lang = context.params.lang as Lang
+  const lang = (context.params.lang ?? 'en') as Lang
 
-  context.locals.commonTranslations = buildTranslations(common, lang ?? 'en')
-  context.locals.bio = getTranslated(bio, lang ?? 'en')
+  context.locals.lang = lang
+  context.locals.commonTranslations = buildTranslations(common, lang)
+  context.locals.bio = getTranslated(bio, lang)
 
   return next()
 }
