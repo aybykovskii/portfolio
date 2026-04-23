@@ -3,7 +3,7 @@
     "id": 1,
     "slug": "daaspil",
     "title": "Daaspil Digital Store",
-    "images": ["/images/projects/daaspil.png"],
+    "images": ["daaspil.png"],
     "status": "completed",
     "technologies": [
       "typescript",
@@ -30,7 +30,7 @@
     "id": 2,
     "slug": "guidegram",
     "title": "Guidegram",
-    "images": ["/images/projects/guidegram.png"],
+    "images": ["guidegram.png"],
     "status": "completed",
     "technologies": [
       "typescript",
@@ -59,7 +59,7 @@
     "id": 3,
     "slug": "baby-vita-dent",
     "title": "Baby Vita Dent",
-    "images": ["/images/projects/baby-vita-dent.jpeg"],
+    "images": ["baby-vita-dent.jpeg"],
     "status": "completed",
     "technologies": [
       "react",

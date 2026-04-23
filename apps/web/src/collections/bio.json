@@ -1,5 +1,5 @@
 {
-  "avatar": "/images/avatar.png",
+  "avatar": "avatar.png",
   "contacts": {
     "email": {
       "class": "fa-regular fa-envelope",

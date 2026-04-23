@@ -57,9 +57,20 @@ export default [
 
   // A11y
   jsxA11yPlugin.flatConfigs.recommended,
+  // Astro: отключаем type-checked правила — они запускают TS language service
+  // для каждого .astro файла, что делает сохранение крайне медленным
+  {
+    files: ['**/*.astro'],
+    ...tseslint.configs.disableTypeChecked,
+  },
   // Astro overrides — после React-конфигов, чтобы не перекрывались
   {
     files: ['**/*.astro'],
+    languageOptions: {
+      parserOptions: {
+        project: false,
+      },
+    },
     rules: {
       'react/no-unknown-property': 'off',
       'react/jsx-key': 'off',

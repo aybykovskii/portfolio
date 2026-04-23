@@ -16,6 +16,10 @@ export default defineConfig({
 
   compressHTML: true,
 
+  image: {
+    domains: ['d18jkaylrcswn0.cloudfront.net', 'cdn.simpleicons.org'],
+  },
+
   trailingSlash: 'ignore',
 
   env: {

@@ -1,10 +1,11 @@
 ---
+import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import { Calendar, MapPin } from 'lucide-react'
 
 import type { Bio } from '@/collections/types'
 import type { Lang } from '@/types'
-import { getProgressPercent, getTranslated } from '@/utils'
+import { getCdnImageUrl, getProgressPercent, getTranslated } from '@/utils'
 
 import { Bar } from './Bar'
 
@@ -24,11 +25,7 @@ const translatedBio = getTranslated(bio, lang)
   <section class="flex flex-col items-center justify-center gap-2 p-6 bg-base-200 shadow rounded-xl border border-base-300 sm:col-span-1 sm:row-span-5">
     <div class="avatar avatar-online">
       <div class="aspect-square w-32 rounded-full">
-        <img
-          src="/images/avatar.png"
-          alt={translatedBio.name}
-          class="object-cover"
-        />
+        <Image src={getCdnImageUrl(bio.avatar)} alt={translatedBio.name} class="object-cover" inferSize />
       </div>
     </div>
 

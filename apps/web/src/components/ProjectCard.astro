@@ -6,6 +6,8 @@ import type { CommonTranslations } from '@/collections/types'
 import type { Lang } from '@/types'
 
 import { LinkTitle } from './LinkTitle'
+import { Image } from 'astro:assets'
+import { getCdnImageUrl } from '@/utils'
 
 interface Props {
   lang: Lang
@@ -22,7 +24,7 @@ const {
 } = Astro.props
 ---
 <div class="card card-xm sm:card-sm md:card-md lg:card-lg overflow-hidden card-border shadow-sm">
-  <img src={images[0] ?? 'https://placehold.co/600x400'} alt={title} />
+  <Image src={getCdnImageUrl(images[0] ?? '')} alt={title} class="object-cover" inferSize />
 
   <div class="card-body gap-6">
     <div class="flex items-center justify-between">

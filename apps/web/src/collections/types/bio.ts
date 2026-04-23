@@ -10,7 +10,7 @@ const contactSchema = z.object({
 })
 
 const bioSchema = z.object({
-  avatar: z.string().optional(),
+  avatar: z.string(),
   contacts: z.object({
     email: contactSchema,
     linkedin: contactSchema,
