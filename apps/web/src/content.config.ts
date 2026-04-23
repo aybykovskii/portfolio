@@ -12,6 +12,7 @@ const technologies = defineCollection({
     id: z.string(),
     name: z.string(),
     icon: z.string(),
+    order: z.number(),
     isMain: z.boolean().optional(),
   }),
 })

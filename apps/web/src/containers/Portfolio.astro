@@ -18,7 +18,7 @@ const { lang } = Astro.locals
 
 const projects = await getCollection('projects')
 const experiences = await getCollection('experiences')
-const technologies = await getCollection('technologies')
+const technologies = (await getCollection('technologies')).sort((a, b) => a.data.order - b.data.order)
 const languages = await getCollection('languages')
 
 const technologiesById: Record<string, CollectionEntry<'technologies'>> = {}

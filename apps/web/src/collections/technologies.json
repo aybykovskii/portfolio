@@ -3,99 +3,118 @@
     "id": "react",
     "name": "React",
     "icon": "react",
+    "order": 1,
     "isMain": true
   },
   {
     "id": "typescript",
     "name": "TypeScript",
     "icon": "typescript",
+    "order": 2,
     "isMain": true
   },
   {
     "id": "javascript",
     "name": "JavaScript",
     "icon": "javascript",
+    "order": 3,
     "isMain": true
   },
   {
     "id": "nextjs",
     "name": "Next.js",
     "icon": "next.js",
+    "order": 4,
     "isMain": true
   },
   {
     "id": "redux-toolkit",
     "name": "Redux Toolkit",
-    "icon": "redux"
+    "icon": "redux",
+    "order": 5
   },
   {
     "id": "scss",
     "name": "SCSS",
-    "icon": "sass"
+    "icon": "sass",
+    "order": 6
   },
   {
     "id": "tailwindcss",
     "name": "Tailwind CSS",
-    "icon": "tailwindcss"
+    "icon": "tailwindcss",
+    "order": 7
   },
   {
     "id": "astro",
     "name": "Astro",
-    "icon": "astro"
+    "icon": "astro",
+    "order": 8
   },
   {
     "id": "vite",
     "name": "vite",
-    "icon": "vite"
+    "icon": "vite",
+    "order": 9
   },
   {
     "id": "vitest",
     "name": "Vitest",
-    "icon": "vitest"
+    "icon": "vitest",
+    "order": 10
   },
   {
     "id": "jest",
     "name": "Jest",
-    "icon": "jest"
+    "icon": "jest",
+    "order": 11
   },
   {
     "id": "redux",
     "name": "Redux",
-    "icon": "redux"
+    "icon": "redux",
+    "order": 12
   },
   {
     "id": "nodejs",
     "name": "Node.js",
-    "icon": "node.js"
+    "icon": "node.js",
+    "order": 13
   },
   {
     "id": "mongodb",
     "name": "MongoDB",
-    "icon": "mongodb"
+    "icon": "mongodb",
+    "order": 14
   },
   {
     "id": "postgresql",
     "name": "PostgreSQL",
-    "icon": "postgresql"
+    "icon": "postgresql",
+    "order": 15
   },
   {
     "id": "redis",
     "name": "Redis",
-    "icon": "redis"
+    "icon": "redis",
+    "order": 16
   },
   {
     "id": "webpack",
     "name": "Webpack",
-    "icon": "webpack"
+    "icon": "webpack",
+    "order": 17
   },
   {
     "id": "convex",
     "name": "Convex",
-    "icon": "convex"
+    "icon": "convex",
+    "order": 18
   },
   {
     "id": "css",
     "name": "Css",
-    "icon": "css"
+    "icon": "css",
+    "order": 19
   }
 ]
