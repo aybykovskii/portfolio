@@ -79,6 +79,7 @@
 :root {
   --fa-width: 16px;
   --fa-height: 16px;
+  font-size: 16px;
 }
 
 html {
@@ -131,4 +132,8 @@ main {
 
 .header-island {
   @apply p-2 rounded-full bg-base-100 border-2 border-base-300 shadow-lg;
+}
+
+.panel-section {
+  @apply flex flex-col items-center justify-center gap-2 p-6 bg-base-200 shadow rounded-xl border border-base-300;
 }

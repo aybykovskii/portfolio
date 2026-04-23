@@ -1,8 +1,10 @@
 import type { MiddlewareHandler } from 'astro'
 
+import bio from './collections/bio.json'
 import common from './collections/common.json'
 import type { CommonTranslations } from './collections/types'
 import type { Lang } from './types'
+import { getTranslated } from './utils'
 
 function assertIsTranslations (obj: unknown): obj is Record<Lang, string> {
   return typeof obj === 'object' && obj !== null && 'en' in obj && typeof obj.en === 'string'
@@ -22,6 +24,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
   const lang = context.params.lang as Lang
 
   context.locals.commonTranslations = buildTranslations(common, lang ?? 'en')
+  context.locals.bio = getTranslated(bio, lang ?? 'en')
 
   return next()
 }

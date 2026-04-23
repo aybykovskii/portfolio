@@ -5,6 +5,10 @@ export const isLangSupported = (lang: Extended<Lang>): lang is Lang => langs.saf
 export const getTranslatedKey = (key: string, common: Record<string, string>) =>
   common[key] ?? 'Could not find translation'
 
+export type Translated<T extends { translations: Record<Lang, Record<string, string>> }> =
+  & Omit<T, 'translations'>
+  & T['translations'][Lang]
+
 export const getTranslated = <
   Entry extends { translations: Record<Lang, Record<string, string>> },
 >(entry: Entry, lang: Lang): Translated<Entry> => {
@@ -13,7 +17,3 @@ export const getTranslated = <
     ...entry.translations[lang],
   } as Translated<Entry>
 }
-
-export type Translated<T extends { translations: Record<Lang, Record<string, string>> }> =
-  & Omit<T, 'translations'>
-  & T['translations'][Lang]

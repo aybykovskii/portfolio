@@ -3,114 +3,99 @@
     "id": "react",
     "name": "React",
     "icon": "react",
-    "level": 5
+    "isMain": true
   },
   {
     "id": "typescript",
     "name": "TypeScript",
     "icon": "typescript",
-    "level": 5
+    "isMain": true
   },
   {
     "id": "javascript",
     "name": "JavaScript",
     "icon": "javascript",
-    "level": 5
+    "isMain": true
   },
   {
     "id": "nextjs",
     "name": "Next.js",
     "icon": "next.js",
-    "level": 5
+    "isMain": true
   },
   {
     "id": "redux-toolkit",
     "name": "Redux Toolkit",
-    "icon": "redux",
-    "level": 5
+    "icon": "redux"
   },
   {
     "id": "scss",
     "name": "SCSS",
-    "icon": "sass",
-    "level": 5
+    "icon": "sass"
   },
   {
     "id": "tailwindcss",
     "name": "Tailwind CSS",
-    "icon": "tailwindcss",
-    "level": 4
+    "icon": "tailwindcss"
   },
   {
     "id": "astro",
     "name": "Astro",
-    "icon": "astro",
-    "level": 4
+    "icon": "astro"
   },
   {
     "id": "vite",
     "name": "vite",
-    "icon": "vite",
-    "level": 4
+    "icon": "vite"
   },
   {
     "id": "vitest",
     "name": "Vitest",
-    "icon": "vitest",
-    "level": 4
+    "icon": "vitest"
   },
   {
     "id": "jest",
     "name": "Jest",
-    "icon": "jest",
-    "level": 4
+    "icon": "jest"
   },
   {
     "id": "redux",
     "name": "Redux",
-    "icon": "redux",
-    "level": 4
+    "icon": "redux"
   },
   {
     "id": "nodejs",
     "name": "Node.js",
-    "icon": "node.js",
-    "level": 3
+    "icon": "node.js"
   },
   {
     "id": "mongodb",
     "name": "MongoDB",
-    "icon": "mongodb",
-    "level": 3
+    "icon": "mongodb"
   },
   {
     "id": "postgresql",
     "name": "PostgreSQL",
-    "icon": "postgresql",
-    "level": 3
+    "icon": "postgresql"
   },
   {
     "id": "redis",
     "name": "Redis",
-    "icon": "redis",
-    "level": 3
+    "icon": "redis"
   },
   {
     "id": "webpack",
     "name": "Webpack",
-    "icon": "webpack",
-    "level": 3
+    "icon": "webpack"
   },
   {
     "id": "convex",
     "name": "Convex",
-    "icon": "convex",
-    "level": 3
+    "icon": "convex"
   },
   {
     "id": "css",
     "name": "Css",
-    "icon": "css",
-    "level": 5
+    "icon": "css"
   }
 ]
