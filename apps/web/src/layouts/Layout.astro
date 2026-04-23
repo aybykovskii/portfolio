@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets'
 import { ClientRouter } from 'astro:transitions'
 
 import LangToggle from '@/components/LangToggle.astro'
@@ -22,6 +23,7 @@ const { commonTranslations } = Astro.locals
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <Font cssVariable="--font-inter" preload />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       rel="stylesheet"

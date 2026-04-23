@@ -3,7 +3,7 @@ import path from 'node:path'
 import node from '@astrojs/node'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig, envField } from 'astro/config'
+import { defineConfig, envField, fontProviders } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +19,17 @@ export default defineConfig({
   image: {
     domains: ['d18jkaylrcswn0.cloudfront.net', 'cdn.simpleicons.org'],
   },
+
+  fonts: [{
+    name: 'Inter',
+    cssVariable: '--font-inter',
+    provider: fontProviders.fontsource(),
+    fallbacks: ['-apple-system', 'sans-serif'],
+    weights: [400, 500, 600, 700],
+    subsets: ['cyrillic', 'latin'],
+    styles: ['normal'],
+    display: 'swap',
+  }],
 
   trailingSlash: 'ignore',
 

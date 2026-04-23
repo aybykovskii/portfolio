@@ -6,33 +6,6 @@
     lofi;
 }
 
-/* inter-regular - cyrillic_latin */
-@font-face {
-  font-display: swap;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/inter-v20-cyrillic_latin-regular.woff2') format('woff2');
-}
-
-/* pixelify-sans-regular - cyrillic_latin */
-@font-face {
-  font-display: swap;
-  font-family: 'Pixelify Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/pixelify-sans-v3-cyrillic_latin-regular.woff2') format('woff2');
-}
-
-/* jetbrains-mono-regular - latin */
-@font-face {
-  font-display: swap;
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/jetbrains-mono-v24-latin-regular.woff2') format('woff2');
-}
-
 @plugin "daisyui/theme" {
   name: 'dracula';
   default: true;
@@ -104,10 +77,6 @@
 }
 
 :root {
-  --font-family: 'Inter', -apple-system, sans-serif;
-  --font-family-mono: 'JetBrains Mono', -apple-system, monospace;
-  --font-family-pixel: 'Pixelify Sans', -apple-system, sans-serif;
-
   --fa-width: 16px;
   --fa-height: 16px;
 }
@@ -117,7 +86,7 @@ html {
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-base-100);
