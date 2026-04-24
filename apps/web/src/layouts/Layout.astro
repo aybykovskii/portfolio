@@ -49,6 +49,8 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`
 const canonicalUrl = canonical ?? Astro.url.href
 const ogImageUrl = new URL(ogImage, Astro.url.origin).href
 
+const ogLocale = lang === 'ru' ? 'ru_RU' : lang === 'es' ? 'es_ES' : 'en_US'
+
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -65,8 +67,19 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: siteName,
   url: Astro.url.origin,
-  description: description,
+  description,
   publisher: { '@id': `${Astro.url.origin}/#organization` },
+}
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${Astro.url.origin}/#person`,
+  name: siteName,
+  url: Astro.url.origin,
+  jobTitle: 'Senior Frontend Engineer',
+  sameAs: ['https://www.linkedin.com/in/aybykovskii/', 'https://github.com/aybykovskii'],
+  worksFor: { '@id': `${Astro.url.origin}/#organization` },
 }
 ---
 
@@ -103,7 +116,7 @@ const websiteSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -114,6 +127,7 @@ const websiteSchema = {
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body>
     <header class="sticky top-4 z-10 flex items-start justify-between px-4">

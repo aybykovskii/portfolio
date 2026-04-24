@@ -5,7 +5,9 @@ export function GET ({ request }: { request: Request }) {
   const lastmod = new Date().toISOString().slice(0, 10)
 
   const urls = [
-    { loc: origin, lastmod, changefreq: 'weekly' as const, priority: 1 },
+    { loc: `${origin}/en`, lastmod, changefreq: 'weekly' as const, priority: 1 },
+    { loc: `${origin}/ru`, lastmod, changefreq: 'weekly' as const, priority: 1 },
+    { loc: `${origin}/es`, lastmod, changefreq: 'weekly' as const, priority: 1 },
   ]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
