@@ -1,11 +1,9 @@
-/**
- * Генерирует sitemap.xml для индексации.
- * В режиме SSR включены только публичные страницы (главная).
- */
 export const prerender = false
 
 export function GET ({ request }: { request: Request }) {
+  console.log('request', request)
   const origin = new URL(request.url).origin
+  console.log('origin', origin)
   const lastmod = new Date().toISOString().slice(0, 10)
 
   const urls = [
