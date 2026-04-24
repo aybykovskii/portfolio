@@ -8,7 +8,7 @@ interface Props {
 
 const { className } = Astro.props
 ---
-<label class={clsx('swap swap-rotate w-fit btn btn-sm btn-ghost', className)}>
+<label class={clsx('swap swap-rotate w-fit btn btn-sm btn-ghost', className)} aria-label="Toggle color theme">
   <input type="checkbox" id="theme-toggle" />
 
   <span class="swap-off icon-light"><Sun className="w-4" /></span>

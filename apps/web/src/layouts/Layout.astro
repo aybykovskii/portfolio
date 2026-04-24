@@ -95,14 +95,7 @@ const personSchema = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <Font cssVariable="--font-inter" preload />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      rel="stylesheet"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <meta name="generator" content={Astro.generator} />
+<meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
     <meta name="description" content={description} />
@@ -132,7 +125,7 @@ const personSchema = {
   <body>
     <header class="sticky top-4 z-10 flex items-start justify-between px-4">
       <div class="flex items-center gap-2 header-island">
-        <button class="w-8 h-8 text-base-content btn btn-ghost btn-circle">
+        <button class="w-8 h-8 text-base-content btn btn-ghost btn-circle" aria-label="Home">
           <Logo />
         </button>
         <button id="scroll-to-contact" class="btn btn-primary btn-sm rounded-full">

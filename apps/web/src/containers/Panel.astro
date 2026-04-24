@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
-import { Calendar, MapPin } from 'lucide-react'
+import { Calendar, FileUser, Github, Linkedin, Mail, MapPin } from 'lucide-react'
 
 import { Bar } from '@/components/Bar'
 import { getCdnImageUrl, getProgressPercent } from '@/utils'
@@ -26,6 +26,13 @@ const subInfo = [
     label: location,
   },
 ]
+
+const contactIcons: Record<string, typeof Mail> = {
+  email: Mail,
+  linkedin: Linkedin,
+  github: Github,
+  cv: FileUser,
+}
 ---
 <aside
   class:list={[
@@ -41,7 +48,7 @@ const subInfo = [
       </div>
     </div>
 
-    <h3 class="font-semibold text-lg">{name}</h3>
+    <h2 class="font-semibold text-lg">{name}</h2>
     <span class="text-sm">{position}</span>
 
     {subInfo.map(({ icon: Icon, label }) => (
@@ -54,11 +61,16 @@ const subInfo = [
 
   <section class:list={['panel-section sm:col-span-1 sm:row-span-1']}>
     <ul class="flex justify-evenly w-full gap-4">
-      {Object.entries(bio.contacts).map(([key, { class: className, value, download }]) => (
-        <a href={value} title={key} class="hover:text-primary transition-colors duration-300" download={download}>
-          <i class:list={[className, 'fa-lg']} />
-        </a>
-      ))}
+      {Object.entries(bio.contacts).map(([key, { value, download }]) => {
+        const Icon = contactIcons[key]
+        return Icon ? (
+          <li>
+            <a href={value} title={key} class="hover:text-primary transition-colors duration-300" download={download}>
+              <Icon size={18} />
+            </a>
+          </li>
+        ) : null
+      })}
     </ul>
   </section>
 

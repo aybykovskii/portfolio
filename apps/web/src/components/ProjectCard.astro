@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
+import { Check, Clock, Github } from 'lucide-react'
 
 import { getCdnImageUrl } from '@/utils'
 
@@ -34,7 +35,10 @@ const technologies = technologiesSlug.map((id) => technologiesById[id]).filter(B
 
       <span class:list={['badge badge-outline', status === 'completed' ? 'badge-success' : 'badge-warning']}>
         <span class="hidden sm:block">{status}</span>
-        <i class:list={['fa-solid', 'sm:[--fa-display:none]', status === 'completed' ? 'fa-check' : 'fa-clock']}></i>
+        {status === 'completed'
+          ? <Check size={14} className="sm:hidden" />
+          : <Clock size={14} className="sm:hidden" />
+        }
       </span>
     </div>
 
@@ -53,7 +57,7 @@ const technologies = technologiesSlug.map((id) => technologiesById[id]).filter(B
         {button && (
           <a href={button.url} target="_blank" rel="noreferrer">
             <button class={'btn btn-ghost border-base-content gap-2'}>
-              <i class={`fa-brands fa-${button.icon} fa-lg`} />
+              <Github size={18} />
               <span>{button.text}</span>
             </button>
           </a>
