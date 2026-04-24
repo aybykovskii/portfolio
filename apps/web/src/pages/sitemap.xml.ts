@@ -1,7 +1,7 @@
 export const prerender = false
 
 export function GET ({ request }: { request: Request }) {
-  const origin = new URL(request.headers.get('host') ?? request.headers.get('x-forwarded-host') ?? '').origin
+  const origin = request.headers.get('host') ?? request.headers.get('x-forwarded-host') ?? ''
   const lastmod = new Date().toISOString().slice(0, 10)
 
   const urls = [
