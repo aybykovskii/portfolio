@@ -31,6 +31,9 @@ COPY apps/web/package.json ./apps/web/package.json
 
 RUN pnpm install --prod --frozen-lockfile
 
+ARG SITE_URL
+ENV SITE_URL=$SITE_URL
+
 ENV HOST=0.0.0.0
 ENV PORT=4333
 
