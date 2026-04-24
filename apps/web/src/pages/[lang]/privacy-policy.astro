@@ -1,0 +1,157 @@
+---
+import Layout from '@/layouts/Layout.astro'
+
+const { lang, commonTranslations } = Astro.locals
+
+const content = {
+  en: {
+    title: 'Privacy Policy',
+    description: 'Privacy Policy for Aleksei Bykovskii Portfolio',
+    lastUpdated: 'Last updated: April, 2026',
+    sections: [
+      {
+        heading: 'Overview',
+        body:
+          'This Privacy Policy describes how this portfolio website (alekseibykovskii.com) collects, uses, and protects your information when you visit or use the contact form.',
+      },
+      {
+        heading: 'Information I Collect',
+        body:
+          'Contact form: When you send a message, I collect your name, email address, and message content solely to respond to your inquiry.\n\nAnalytics: I use Google Analytics to understand how visitors interact with this site. This collects anonymized data such as pages visited, time spent, and device type. No personally identifiable information is collected through analytics.',
+      },
+      {
+        heading: 'How I Use Your Information',
+        body:
+          'Contact form data is used only to respond to your message and is not stored beyond what is necessary to reply. Analytics data helps me improve the website experience.',
+      },
+      {
+        heading: 'Third-Party Services',
+        body:
+          'Google Analytics: This site uses Google Analytics (GA4). Google may collect and process data according to their own privacy policy. You can opt out using the Google Analytics opt-out browser add-on.',
+      },
+      {
+        heading: 'Data Retention',
+        body:
+          'Contact messages are retained only as long as necessary to respond. Analytics data is retained per Google Analytics default settings.',
+      },
+      {
+        heading: 'Your Rights',
+        body:
+          'You have the right to request access to, correction of, or deletion of any personal data you have submitted through the contact form. Contact me at the email below.',
+      },
+      {
+        heading: 'Contact',
+        body: 'If you have any questions about this Privacy Policy, please contact me at alesha.byk@gmail.com.',
+      },
+    ],
+  },
+  ru: {
+    title: 'Политика конфиденциальности',
+    description: 'Политика конфиденциальности портфолио Алексея Быковского',
+    lastUpdated: 'Последнее обновление: 25 апреля 2026 г.',
+    sections: [
+      {
+        heading: 'Обзор',
+        body:
+          'Настоящая Политика конфиденциальности описывает, как этот сайт-портфолио (alekseibykovskii.com) собирает, использует и защищает вашу информацию при посещении сайта или использовании формы обратной связи.',
+      },
+      {
+        heading: 'Собираемая информация',
+        body:
+          'Форма обратной связи: при отправке сообщения я собираю ваше имя, адрес электронной почты и текст сообщения исключительно для ответа на ваш запрос.\n\nАналитика: я использую Google Analytics для понимания того, как посетители взаимодействуют с сайтом. Собираются обезличенные данные: посещённые страницы, время пребывания, тип устройства. Персональные данные через аналитику не собираются.',
+      },
+      {
+        heading: 'Использование информации',
+        body:
+          'Данные из формы обратной связи используются только для ответа на ваше сообщение и не хранятся дольше необходимого. Данные аналитики помогают улучшать сайт.',
+      },
+      {
+        heading: 'Сторонние сервисы',
+        body:
+          'Google Analytics: сайт использует Google Analytics (GA4). Google может собирать и обрабатывать данные в соответствии с собственной политикой конфиденциальности. Вы можете отказаться от отслеживания с помощью браузерного расширения Google Analytics Opt-out.',
+      },
+      {
+        heading: 'Хранение данных',
+        body:
+          'Сообщения из формы обратной связи хранятся только до момента ответа. Данные аналитики хранятся в соответствии с настройками Google Analytics по умолчанию.',
+      },
+      {
+        heading: 'Ваши права',
+        body:
+          'Вы вправе запросить доступ, исправление или удаление любых персональных данных, переданных через форму обратной связи. Свяжитесь со мной по электронной почте ниже.',
+      },
+      {
+        heading: 'Контакт',
+        body:
+          'По любым вопросам, связанным с настоящей Политикой конфиденциальности, обращайтесь: alesha.byk@gmail.com.',
+      },
+    ],
+  },
+  es: {
+    title: 'Política de Privacidad',
+    description: 'Política de Privacidad del portafolio de Aleksei Bykovskii',
+    lastUpdated: 'Última actualización: 25 de abril de 2026',
+    sections: [
+      {
+        heading: 'Descripción general',
+        body:
+          'Esta Política de Privacidad describe cómo este sitio web de portafolio (alekseibykovskii.com) recopila, usa y protege tu información cuando visitas el sitio o utilizas el formulario de contacto.',
+      },
+      {
+        heading: 'Información que recopilo',
+        body:
+          'Formulario de contacto: cuando envías un mensaje, recopilo tu nombre, dirección de correo electrónico y el contenido del mensaje únicamente para responder a tu consulta.\n\nAnalítica: utilizo Google Analytics para comprender cómo los visitantes interactúan con este sitio. Se recopilan datos anonimizados como páginas visitadas, tiempo de permanencia y tipo de dispositivo. No se recopila información de identificación personal a través de la analítica.',
+      },
+      {
+        heading: 'Cómo uso tu información',
+        body:
+          'Los datos del formulario de contacto se usan únicamente para responder a tu mensaje y no se conservan más tiempo del necesario. Los datos de analítica me ayudan a mejorar la experiencia del sitio.',
+      },
+      {
+        heading: 'Servicios de terceros',
+        body:
+          'Google Analytics: este sitio utiliza Google Analytics (GA4). Google puede recopilar y procesar datos según su propia política de privacidad. Puedes optar por no participar con el complemento de inhabilitación de Google Analytics para navegadores.',
+      },
+      {
+        heading: 'Retención de datos',
+        body:
+          'Los mensajes del formulario de contacto se conservan solo el tiempo necesario para responder. Los datos de analítica se conservan según la configuración predeterminada de Google Analytics.',
+      },
+      {
+        heading: 'Tus derechos',
+        body:
+          'Tienes derecho a solicitar acceso, corrección o eliminación de cualquier dato personal enviado a través del formulario de contacto. Contáctame al correo indicado a continuación.',
+      },
+      {
+        heading: 'Contacto',
+        body: 'Si tienes preguntas sobre esta Política de Privacidad, contáctame en alesha.byk@gmail.com.',
+      },
+    ],
+  },
+}
+
+const t = content[lang] ?? content.en
+---
+
+<Layout title={t.title} description={t.description} noindex>
+  <div class="max-w-3xl mx-auto px-6">
+    <a
+      href={`/${lang}`}
+      class="inline-flex items-center gap-2 text-base-content/60 hover:text-base-content mb-8 transition-colors"
+    >
+      ← {commonTranslations?.actions.back}
+    </a>
+
+    <h1 class="text-3xl font-bold mb-2">{t.title}</h1>
+    <p class="text-base-content/50 text-sm mb-10">{t.lastUpdated}</p>
+
+    <div class="space-y-8">
+      {t.sections.map((section) => (
+        <section>
+          <h2 class="text-lg font-semibold mb-2">{section.heading}</h2>
+          <div class="text-base-content/70 leading-relaxed whitespace-pre-line">{section.body}</div>
+        </section>
+      ))}
+    </div>
+  </div>
+</Layout>

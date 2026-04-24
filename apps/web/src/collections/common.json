@@ -1,4 +1,21 @@
 {
+  "site": {
+    "title": {
+      "en": "Aleksei Bykovskii",
+      "ru": "Алексей Быковский",
+      "es": "Aleksei Bykovskii"
+    },
+    "description": {
+      "en": "Aleksei Bykovskii Portfolio",
+      "ru": "Портфолио Алексея Быковского",
+      "es": "Portafolio de Aleksei Bykovskii"
+    },
+    "ogLocale": {
+      "en": "en_US",
+      "ru": "ru_RU",
+      "es": "es_ES"
+    }
+  },
   "routes": {
     "about": {
       "en": "About",
@@ -144,6 +161,18 @@
       "en": "I'll get back to you as soon as possible.",
       "ru": "Я отвечу вам в ближайшее время.",
       "es": "Me pondré en contacto contigo lo antes posible."
+    }
+  },
+  "legal": {
+    "privacyPolicy": {
+      "en": "Privacy Policy",
+      "ru": "Конфиденциальность",
+      "es": "Privacidad"
+    },
+    "termsOfService": {
+      "en": "Terms of Service",
+      "ru": "Условия использования",
+      "es": "Términos de servicio"
     }
   },
   "notFound": {

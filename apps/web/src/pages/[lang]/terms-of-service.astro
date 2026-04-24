@@ -1,0 +1,171 @@
+---
+import Layout from '@/layouts/Layout.astro'
+
+const { lang, commonTranslations } = Astro.locals
+
+const content = {
+  en: {
+    title: 'Terms of Service',
+    description: 'Terms of Service for Aleksei Bykovskii Portfolio',
+    lastUpdated: 'Last updated: April, 2026',
+    sections: [
+      {
+        heading: 'Acceptance of Terms',
+        body:
+          'By accessing and using this portfolio website (alekseibykovskii.com), you agree to these Terms of Service. If you do not agree, please do not use this site.',
+      },
+      {
+        heading: 'Use of the Website',
+        body:
+          'This website is a personal portfolio created for informational and professional purposes. You may browse, view, and use the contact form to get in touch. You may not scrape, reproduce, or redistribute the content without permission.',
+      },
+      {
+        heading: 'Intellectual Property',
+        body:
+          'All content on this website — including text, code samples, project descriptions, and design — is the intellectual property of Aleksei Bykovskii unless otherwise noted. Unauthorized reproduction or use is prohibited.',
+      },
+      {
+        heading: 'External Links',
+        body:
+          'This site may contain links to third-party websites (GitHub, LinkedIn, project demos). I am not responsible for the content or privacy practices of those external sites.',
+      },
+      {
+        heading: 'Disclaimer of Warranties',
+        body:
+          'This website is provided "as is" without any warranties of any kind. I do not guarantee that the site will be error-free, uninterrupted, or that information will always be up to date.',
+      },
+      {
+        heading: 'Limitation of Liability',
+        body:
+          'To the fullest extent permitted by law, I shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website.',
+      },
+      {
+        heading: 'Changes to Terms',
+        body:
+          'I reserve the right to update these Terms of Service at any time. Continued use of the site after changes constitutes acceptance of the new terms.',
+      },
+      {
+        heading: 'Contact',
+        body: 'If you have questions about these Terms, please contact me at alesha.byk@gmail.com.',
+      },
+    ],
+  },
+  ru: {
+    title: 'Условия использования',
+    description: 'Условия использования портфолио Алексея Быковского',
+    lastUpdated: 'Последнее обновление: 25 апреля 2026 г.',
+    sections: [
+      {
+        heading: 'Принятие условий',
+        body:
+          'Используя этот сайт-портфолио (alekseibykovskii.com), вы соглашаетесь с настоящими Условиями использования. Если вы не согласны, пожалуйста, не используйте сайт.',
+      },
+      {
+        heading: 'Использование сайта',
+        body:
+          'Этот сайт — личное портфолио, созданное в информационных и профессиональных целях. Вы можете просматривать материалы и использовать форму обратной связи. Копирование, парсинг или распространение контента без разрешения запрещены.',
+      },
+      {
+        heading: 'Интеллектуальная собственность',
+        body:
+          'Весь контент сайта — тексты, примеры кода, описания проектов и дизайн — является интеллектуальной собственностью Алексея Быковского, если не указано иное. Несанкционированное воспроизведение или использование запрещено.',
+      },
+      {
+        heading: 'Внешние ссылки',
+        body:
+          'Сайт может содержать ссылки на сторонние ресурсы (GitHub, LinkedIn, демо-проекты). Я не несу ответственности за содержание и политику конфиденциальности внешних сайтов.',
+      },
+      {
+        heading: 'Отказ от гарантий',
+        body:
+          'Сайт предоставляется «как есть» без каких-либо гарантий. Я не гарантирую, что сайт будет работать без ошибок и перебоев, а информация всегда будет актуальной.',
+      },
+      {
+        heading: 'Ограничение ответственности',
+        body:
+          'В максимально допустимой законом мере я не несу ответственности за какой-либо косвенный, случайный или последующий ущерб, возникший в результате использования сайта.',
+      },
+      {
+        heading: 'Изменения условий',
+        body:
+          'Я оставляю за собой право обновлять настоящие Условия использования в любое время. Продолжение использования сайта после внесения изменений означает принятие новых условий.',
+      },
+      {
+        heading: 'Контакт',
+        body: 'По вопросам, связанным с Условиями использования, обращайтесь: alesha.byk@gmail.com.',
+      },
+    ],
+  },
+  es: {
+    title: 'Términos de Servicio',
+    description: 'Términos de Servicio del portafolio de Aleksei Bykovskii',
+    lastUpdated: 'Última actualización: 25 de abril de 2026',
+    sections: [
+      {
+        heading: 'Aceptación de los términos',
+        body:
+          'Al acceder y utilizar este sitio web de portafolio (alekseibykovskii.com), aceptas estos Términos de Servicio. Si no estás de acuerdo, por favor no uses este sitio.',
+      },
+      {
+        heading: 'Uso del sitio web',
+        body:
+          'Este sitio web es un portafolio personal creado con fines informativos y profesionales. Puedes navegar, ver contenido y usar el formulario de contacto. No puedes extraer, reproducir ni redistribuir el contenido sin permiso.',
+      },
+      {
+        heading: 'Propiedad intelectual',
+        body:
+          'Todo el contenido de este sitio — textos, ejemplos de código, descripciones de proyectos y diseño — es propiedad intelectual de Aleksei Bykovskii, salvo que se indique lo contrario. La reproducción o uso no autorizado está prohibido.',
+      },
+      {
+        heading: 'Enlaces externos',
+        body:
+          'Este sitio puede contener enlaces a sitios web de terceros (GitHub, LinkedIn, demos de proyectos). No soy responsable del contenido ni de las prácticas de privacidad de esos sitios externos.',
+      },
+      {
+        heading: 'Exclusión de garantías',
+        body:
+          'Este sitio web se proporciona "tal cual" sin garantías de ningún tipo. No garantizo que el sitio esté libre de errores, sea ininterrumpido, ni que la información esté siempre actualizada.',
+      },
+      {
+        heading: 'Limitación de responsabilidad',
+        body:
+          'En la máxima medida permitida por la ley, no seré responsable de ningún daño indirecto, incidental o consecuente derivado del uso de este sitio web.',
+      },
+      {
+        heading: 'Cambios en los términos',
+        body:
+          'Me reservo el derecho de actualizar estos Términos de Servicio en cualquier momento. El uso continuado del sitio tras los cambios implica la aceptación de los nuevos términos.',
+      },
+      {
+        heading: 'Contacto',
+        body: 'Si tienes preguntas sobre estos Términos, contáctame en alesha.byk@gmail.com.',
+      },
+    ],
+  },
+}
+
+const t = content[lang] ?? content.en
+---
+
+<Layout title={t.title} description={t.description} noindex>
+  <div class="max-w-3xl mx-auto px-6">
+    <a
+      href={`/${lang}`}
+      class="inline-flex items-center gap-2 text-base-content/60 hover:text-base-content mb-8 transition-colors"
+    >
+      ← {commonTranslations?.actions.back}
+    </a>
+
+    <h1 class="text-3xl font-bold mb-2">{t.title}</h1>
+    <p class="text-base-content/50 text-sm mb-10">{t.lastUpdated}</p>
+
+    <div class="space-y-8">
+      {t.sections.map((section) => (
+        <section>
+          <h2 class="text-lg font-semibold mb-2">{section.heading}</h2>
+          <div class="text-base-content/70 leading-relaxed whitespace-pre-line">{section.body}</div>
+        </section>
+      ))}
+    </div>
+  </div>
+</Layout>

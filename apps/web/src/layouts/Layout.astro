@@ -11,18 +11,6 @@ import '../styles/reset.css'
 
 const { commonTranslations, lang } = Astro.locals
 
-const titlesByLang = {
-  en: 'Aleksei Bykovskii',
-  ru: 'Алексей Быковский',
-  es: 'Aleksei Bykovskii',
-}
-
-const descriptionsByLang = {
-  en: 'Aleksei Bykovskii Portfolio',
-  ru: 'Портфолио Алексея Быковского',
-  es: 'Portafolio de Aleksei Bykovskii',
-}
-
 interface Props {
   /** Заголовок страницы (до 60 символов). По умолчанию: "Daaspil" */
   title?: string
@@ -37,8 +25,8 @@ interface Props {
 }
 
 const {
-  title = titlesByLang[lang],
-  description = descriptionsByLang[lang],
+  title = commonTranslations?.site.title,
+  description = commonTranslations?.site.description,
   ogImage = '/og.jpeg',
   canonical,
   noindex = false,
@@ -49,7 +37,7 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`
 const canonicalUrl = canonical ?? Astro.url.href
 const ogImageUrl = new URL(ogImage, Astro.url.origin).href
 
-const ogLocale = lang === 'ru' ? 'ru_RU' : lang === 'es' ? 'es_ES' : 'en_US'
+const ogLocale = commonTranslations?.site.ogLocale
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -81,6 +69,8 @@ const personSchema = {
   sameAs: ['https://www.linkedin.com/in/aybykovskii/', 'https://github.com/aybykovskii'],
   worksFor: { '@id': `${Astro.url.origin}/#organization` },
 }
+
+const pathname = Astro.url.pathname
 ---
 
 <!DOCTYPE html>
@@ -139,9 +129,11 @@ const personSchema = {
         <button class="w-8 h-8 text-base-content btn btn-ghost btn-circle" aria-label="Home">
           <Logo />
         </button>
-        <button id="scroll-to-contact" class="btn btn-primary btn-sm rounded-full">
-          {commonTranslations?.actions.contactMe}
-        </button>
+        {pathname === `/${lang}` && (
+          <button id="scroll-to-contact" class="btn btn-primary btn-sm rounded-full">
+            {commonTranslations?.actions.contactMe}
+          </button>
+        )}
       </div>
 
       <div class="flex gap-2 header-island">
@@ -156,9 +148,16 @@ const personSchema = {
     </main>
 
     <footer class="mt-16 border-t border-base-content/10">
-      <div class="flex items-center justify-between px-6 py-4 text-base-content/60 text-sm sm:text-base">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 px-6 py-4 text-base-content/60 text-sm sm:text-base">
         <span>© {new Date().getFullYear()} Aleksei Bykovskii</span>
-        <span>All rights reserved</span>
+        <div class="flex gap-4">
+          <a href={`/${lang}/privacy-policy`} class="hover:text-base-content transition-colors">
+            {commonTranslations?.legal.privacyPolicy}
+          </a>
+          <a href={`/${lang}/terms-of-service`} class="hover:text-base-content transition-colors">
+            {commonTranslations?.legal.termsOfService}
+          </a>
+        </div>
       </div>
     </footer>
 
