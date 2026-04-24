@@ -95,12 +95,23 @@ const personSchema = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <Font cssVariable="--font-inter" preload />
-<meta name="generator" content={Astro.generator} />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-85CRHPDX8E"></script>
+    <script lang="js">
+    window.dataLayer = window.dataLayer || []
+    function gtag () {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+    gtag('config', 'G-85CRHPDX8E')
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
