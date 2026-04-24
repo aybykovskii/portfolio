@@ -12,10 +12,10 @@ interface Props {
 const { className, technologies } = Astro.props
 ---
 <ul class:list={['flex flex-wrap gap-2', className]}>
-  {technologies?.map(({ data: { icon, name } }) => (
+  {technologies?.map(({ data: { icon, name, iconColor } }) => (
     <li>
       <span class="badge badge-primary badge-soft badge-sm sm:badge-lg gap-2">
-        <Image src={getIconUrl(icon)} alt={name} width={16} height={16} />
+        {icon && <Image src={getIconUrl(icon, iconColor)} alt={name} width={16} height={16} />}
         {name}
       </span>
     </li>

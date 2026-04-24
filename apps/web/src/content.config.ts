@@ -11,9 +11,11 @@ const technologies = defineCollection({
   schema: z.object({
     id: z.string(),
     name: z.string(),
-    icon: z.string(),
+    icon: z.string().optional(),
+    iconColor: z.string().optional(),
     order: z.number(),
     isMain: z.boolean().optional(),
+    isHidden: z.boolean().optional(),
   }),
 })
 

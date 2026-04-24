@@ -6,9 +6,9 @@
     "images": ["daaspil.png"],
     "status": "completed",
     "technologies": [
-      "typescript",
       "react",
       "astro",
+      "typescript",
       "tailwindcss",
       "convex"
     ],
@@ -34,9 +34,9 @@
     "status": "completed",
     "technologies": [
       "typescript",
+      "nodejs",
       "postgresql",
-      "redis",
-      "nodejs"
+      "redis"
     ],
     "button": {
       "text": "GitHub",
@@ -63,8 +63,8 @@
     "status": "completed",
     "technologies": [
       "react",
-      "typescript",
       "nextjs",
+      "typescript",
       "nodejs",
       "mongodb"
     ],

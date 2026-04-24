@@ -28,33 +28,40 @@
     "isMain": true
   },
   {
+    "id": "astro",
+    "name": "Astro",
+    "icon": "astro",
+    "order": 5,
+    "isMain": true
+  },
+  {
+    "id": "redux",
+    "name": "Redux",
+    "icon": "redux",
+    "order": 5
+  },
+  {
     "id": "redux-toolkit",
     "name": "Redux Toolkit",
     "icon": "redux",
-    "order": 5
+    "order": 6
+  },
+  {
+    "id": "react-query",
+    "name": "React Query",
+    "icon": "reactquery",
+    "order": 7
   },
   {
     "id": "scss",
     "name": "SCSS",
     "icon": "sass",
-    "order": 6
+    "order": 8
   },
   {
     "id": "tailwindcss",
     "name": "Tailwind CSS",
     "icon": "tailwindcss",
-    "order": 7
-  },
-  {
-    "id": "astro",
-    "name": "Astro",
-    "icon": "astro",
-    "order": 8
-  },
-  {
-    "id": "vite",
-    "name": "vite",
-    "icon": "vite",
     "order": 9
   },
   {
@@ -70,51 +77,112 @@
     "order": 11
   },
   {
-    "id": "redux",
-    "name": "Redux",
-    "icon": "redux",
+    "id": "eslint",
+    "name": "Eslint",
+    "icon": "eslint",
     "order": 12
   },
   {
     "id": "nodejs",
     "name": "Node.js",
     "icon": "node.js",
-    "order": 13
+    "order": 14
   },
   {
     "id": "mongodb",
     "name": "MongoDB",
     "icon": "mongodb",
-    "order": 14
+    "order": 15
   },
   {
     "id": "postgresql",
     "name": "PostgreSQL",
     "icon": "postgresql",
-    "order": 15
-  },
-  {
-    "id": "redis",
-    "name": "Redis",
-    "icon": "redis",
     "order": 16
-  },
-  {
-    "id": "webpack",
-    "name": "Webpack",
-    "icon": "webpack",
-    "order": 17
   },
   {
     "id": "convex",
     "name": "Convex",
     "icon": "convex",
+    "order": 17
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "icon": "redis",
     "order": 18
+  },
+  {
+    "id": "hono",
+    "name": "Hono",
+    "icon": "hono",
+    "order": 19
+  },
+  {
+    "id": "express",
+    "name": "Express",
+    "icon": "express",
+    "order": 20
+  },
+  {
+    "id": "vite",
+    "name": "vite",
+    "icon": "vite",
+    "order": 21
+  },
+  {
+    "id": "webpack",
+    "name": "Webpack",
+    "icon": "webpack",
+    "order": 22
+  },
+  {
+    "id": "docker",
+    "name": "docker",
+    "icon": "docker",
+    "order": 23
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "icon": "kubernetes",
+    "order": 24
+  },
+  {
+    "id": "bun",
+    "name": "Bun",
+    "icon": "bun",
+    "iconColor": "FBF0DF",
+    "order": 25
+  },
+  {
+    "id": "aws",
+    "name": "AWS",
+    "order": 26
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "icon": "cloudflare",
+    "order": 27
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "icon": "cursor",
+    "order": 28
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "icon": "claude",
+    "order": 29
   },
   {
     "id": "css",
     "name": "Css",
     "icon": "css",
-    "order": 19
+    "order": -1,
+    "isHidden": true
   }
 ]

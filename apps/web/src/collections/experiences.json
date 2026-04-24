@@ -113,7 +113,10 @@
       "javascript",
       "redux",
       "scss",
-      "css"
+      "css",
+      "nodejs",
+      "mongodb",
+      "express"
     ],
     "translations": {
       "en": {
