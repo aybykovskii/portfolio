@@ -4,8 +4,10 @@ import node from '@astrojs/node'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig, envField, fontProviders, passthroughImageService } from 'astro/config'
+import { loadEnv } from 'vite'
 
-const site = process.env.SITE_URL
+const env = loadEnv(process.env.NODE_ENV ?? 'production', process.cwd(), '')
+const site = env.SITE_URL
 
 // https://astro.build/config
 export default defineConfig({
