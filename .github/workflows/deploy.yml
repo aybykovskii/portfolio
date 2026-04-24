@@ -39,12 +39,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Debug variables
-        run: |
-          echo "SITE_URL=${{ vars.SITE_URL }}"
-          echo "APP_NAME=${{ env.APP_NAME }}"
-          echo "DOCKER_USERNAME is set: ${{ secrets.DOCKER_USERNAME != '' }}"
-
       # 4) Build & Push Docker image
       - name: Build Docker image
         uses: docker/build-push-action@v4
