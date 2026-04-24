@@ -3,7 +3,7 @@ import path from 'node:path'
 import node from '@astrojs/node'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig, envField, fontProviders } from 'astro/config'
+import { defineConfig, envField, fontProviders, passthroughImageService } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +17,8 @@ export default defineConfig({
   compressHTML: true,
 
   image: {
-    domains: ['d18jkaylrcswn0.cloudfront.net', 'cdn.simpleicons.org'],
+    service: passthroughImageService(),
+    domains: ['d18jkaylrcswn0.cloudfront.net'],
   },
 
   fonts: [{
@@ -40,18 +41,6 @@ export default defineConfig({
         context: 'server',
         access: 'public',
         optional: true,
-      }),
-      RESEND_API_KEY: envField.string({
-        context: 'server',
-        access: 'secret',
-      }),
-      RESEND_FROM_EMAIL: envField.string({
-        context: 'server',
-        access: 'public',
-      }),
-      RESEND_TO_EMAIL: envField.string({
-        context: 'server',
-        access: 'public',
       }),
     },
   },

@@ -1,9 +1,6 @@
 import { email as emailSchema, z } from 'astro/zod'
 import { ActionError, defineAction } from 'astro:actions'
-import { RESEND_API_KEY, RESEND_FROM_EMAIL, RESEND_TO_EMAIL } from 'astro:env/server'
 import { Resend } from 'resend'
-
-const resend = new Resend(RESEND_API_KEY)
 
 export const server = {
   contact: defineAction({
@@ -14,9 +11,11 @@ export const server = {
       message: z.string().min(1),
     }),
     handler: async ({ name, email, message }) => {
+      const resend = new Resend(process.env.RESEND_API_KEY)
+
       const { error } = await resend.emails.send({
-        from: `Portfolio <${RESEND_FROM_EMAIL}>`,
-        to: RESEND_TO_EMAIL,
+        from: `Portfolio <${process.env.RESEND_FROM_EMAIL}>`,
+        to: process.env.RESEND_TO_EMAIL as string,
         subject: `Portfolio contact from ${name}`,
         text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
       })
