@@ -1,0 +1,54 @@
+# Aleksei Bykovskii — Portfolio
+
+> Senior Frontend Engineer with 5+ years building and scaling product-focused React/TypeScript applications. Available for remote opportunities.
+
+## About
+
+- Name: Aleksei Bykovskii
+- Role: Senior Frontend Engineer
+- Location: Remote
+- Email: aybykovskii@gmail.com
+- GitHub: https://github.com/aybykovskii
+- LinkedIn: https://www.linkedin.com/in/aybykovskii/
+
+## Skills
+
+Core: React, TypeScript, JavaScript, Next.js, Astro
+Styling: Tailwind CSS, SCSS
+State: Redux, Redux Toolkit, React Query
+Testing: Vitest, Jest
+Backend: Node.js, Express, Hono
+Databases: PostgreSQL, MongoDB, Redis, Convex
+Infrastructure: Docker, Kubernetes, AWS, Cloudflare
+
+## Experience
+
+**Senior Frontend Developer — 42 LLC (2021 – present, Remote)**
+Moscow Electronic School (MES) — government-scale education platform used by millions of students across Moscow.
+- TypeScript migration across 5 projects, 1,000+ components updated
+- Architected and shipped a Coursera-style course platform within MES
+- Unified ESLint/dprint config across 5+ projects
+- Led Redux Toolkit migration, cut sprint cycle time by ~40%
+- Mentored 5 engineers to mid-level within 24 months
+
+**Middle Frontend Developer — Urban IT (2020 – 2021, Remote)**
+Civic tech startup: crowdsourced cleanliness-rating platform for residential areas in Khabarovsk.
+- Built React/TypeScript frontend with interactive Yandex Maps integration
+- Integrated Redux; contributed to Node.js/MongoDB backend
+
+**Web Developer — Freelance (2019 – 2020, Remote)**
+~100 client projects over 12 months — UI fixes, components, full landing pages.
+
+## Projects
+
+**Daaspil Digital Store** — https://daaspil.com
+Conversion-focused landing page for an Instagram creator selling digital guidebooks. Integrated Robokassa payment API. Built on Astro with self-hosted Convex, AWS S3, and CloudFront; sub-second load times. Full infrastructure ownership.
+Stack: React, Astro, TypeScript, Tailwind CSS, Convex
+
+**Guidegram** — https://github.com/toro-devs/guidegram-preview
+Production Telegram commerce bot for selling digital products. Integrated YooKassa and Robokassa payment APIs. Discount and segmented broadcast features. Full infrastructure ownership.
+Stack: TypeScript, Node.js, PostgreSQL, Redis
+
+**Baby Vita Dent** — https://babyvitadent.ru
+Full-stack web platform for a Moscow dental clinic network (~5,000 monthly users). End-to-end appointment booking with Telegram bot confirmations. Delivered in 6 months by a 2-person team.
+Stack: React, Next.js, TypeScript, Node.js, MongoDB

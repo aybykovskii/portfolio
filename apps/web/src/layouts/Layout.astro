@@ -9,8 +9,65 @@ import { Logo } from './Logo'
 import '../styles/root.css'
 import '../styles/reset.css'
 
-const { title } = Astro.props
 const { commonTranslations, lang } = Astro.locals
+
+const titlesByLang = {
+  en: 'Aleksei Bykovskii',
+  ru: 'Алексей Быковский',
+  es: 'Aleksei Bykovskii',
+}
+
+const descriptionsByLang = {
+  en: 'Aleksei Bykovskii Portfolio',
+  ru: 'Портфолио Алексея Быковского',
+  es: 'Portafolio de Aleksei Bykovskii',
+}
+
+interface Props {
+  /** Заголовок страницы (до 60 символов). По умолчанию: "Daaspil" */
+  title?: string
+  /** Описание страницы для поисковиков и соцсетей (150–160 символов) */
+  description?: string
+  /** URL изображения для Open Graph / Twitter Card (рекомендуется 1200×630) */
+  ogImage?: string
+  /** Канонический URL страницы. По умолчанию — текущий URL */
+  canonical?: string
+  /** Скрыть страницу от индексации (для админки и т.п.) */
+  noindex?: boolean
+}
+
+const {
+  title = titlesByLang[lang],
+  description = descriptionsByLang[lang],
+  ogImage = '/og.jpeg',
+  canonical,
+  noindex = false,
+} = Astro.props
+
+const siteName = 'Aleksei Bykovskii'
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`
+const canonicalUrl = canonical ?? Astro.url.href
+const ogImageUrl = new URL(ogImage, Astro.url.origin).href
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${Astro.url.origin}/#organization`,
+  name: siteName,
+  url: Astro.url.origin,
+  logo: new URL('/favicon.svg', Astro.url.origin).href,
+  sameAs: ['https://www.linkedin.com/in/aybykovskii/', 'https://github.com/aybykovskii'],
+  description,
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  url: Astro.url.origin,
+  description: description,
+  publisher: { '@id': `${Astro.url.origin}/#organization` },
+}
 ---
 
 <!DOCTYPE html>
@@ -34,6 +91,29 @@ const { commonTranslations, lang } = Astro.locals
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
   <body>
     <header class="sticky top-4 z-10 flex items-start justify-between px-4">

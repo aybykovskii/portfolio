@@ -1,7 +1,5 @@
-FROM node:22-alpine AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+FROM oven/bun:1-alpine AS base
+RUN bun add --global pnpm
 
 # ── deps ──────────────────────────────────────────────────────────────────────
 FROM base AS deps
@@ -35,4 +33,4 @@ ENV PORT=4333
 
 EXPOSE 4333
 
-CMD ["node", "apps/web/dist/server/entry.mjs"]
+CMD ["bun", "apps/web/dist/server/entry.mjs"]
