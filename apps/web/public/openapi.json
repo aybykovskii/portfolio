@@ -1,0 +1,37 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Aleksei Bykovskii Portfolio API",
+    "version": "1.0.0",
+    "description": "Public API for the portfolio contact form."
+  },
+  "paths": {
+    "/_actions/contact": {
+      "post": {
+        "operationId": "contact",
+        "summary": "Send a contact message",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "email", "message"],
+                "properties": {
+                  "name":    { "type": "string", "minLength": 1 },
+                  "email":   { "type": "string", "format": "email" },
+                  "message": { "type": "string", "minLength": 1 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Message sent successfully" },
+          "400": { "description": "Validation error" },
+          "500": { "description": "Internal server error" }
+        }
+      }
+    }
+  }
+}

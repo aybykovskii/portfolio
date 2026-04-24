@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "contact",
+      "type": "action",
+      "description": "Send a contact message to Aleksei Bykovskii via the portfolio contact form.",
+      "url": "/.well-known/agent-skills/contact/SKILL.md",
+      "sha256": "3dc88e6b42696282c6c9894032f019cf47c30f0e1bc032f01ebaf264061cef52"
+    },
+    {
+      "name": "markdown-negotiation",
+      "type": "content",
+      "description": "Returns portfolio content as Markdown when requested with Accept: text/markdown.",
+      "url": "/.well-known/agent-skills/markdown-negotiation/SKILL.md",
+      "sha256": "9a2731ab142e06be35142f36c2efc47bb008aa20f02c259824211fcd8a6dfbb0"
+    },
+    {
+      "name": "api-catalog",
+      "type": "discovery",
+      "description": "Publishes an RFC 9727 API catalog at /.well-known/api-catalog.",
+      "url": "/.well-known/agent-skills/api-catalog/SKILL.md",
+      "sha256": "e9bb61a973b558bd116d1698d5e69464ee81c11107b0dbd0c9e11192d5160354"
+    }
+  ]
+}

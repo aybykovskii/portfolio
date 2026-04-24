@@ -1,13 +1,6 @@
 ---
 import Portfolio from '@/containers/Portfolio.astro'
 import Layout from '@/layouts/Layout.astro'
-import { lang as langs } from '@/types'
-
-export const prerender = true
-
-export function getStaticPaths () {
-  return langs.options.map((lang) => ({ params: { lang } }))
-}
 ---
 
 <Layout>

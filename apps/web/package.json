@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "start": "node .output/server/index.mjs",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "update-skill-hashes": "node --experimental-strip-types scripts/update-skill-hashes.ts"
   },
   "dependencies": {
     "@astrojs/node": "10.0.4",
