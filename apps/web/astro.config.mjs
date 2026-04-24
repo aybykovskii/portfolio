@@ -7,11 +7,16 @@ import { defineConfig, envField, fontProviders, passthroughImageService } from '
 
 const site = process.env.SITE_URL
 
+console.log('site', site)
+
 // https://astro.build/config
 export default defineConfig({
   site,
   redirects: {
     '/': '/en',
+  },
+  security: {
+    allowedDomains: [site],
   },
   integrations: [react()],
 
