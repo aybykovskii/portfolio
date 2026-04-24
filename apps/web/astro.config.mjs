@@ -9,6 +9,8 @@ import { loadEnv } from 'vite'
 const env = loadEnv(process.env.NODE_ENV ?? 'production', process.cwd(), '')
 const site = env.SITE_URL
 
+console.log('env', env)
+
 // https://astro.build/config
 export default defineConfig({
   site,

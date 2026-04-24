@@ -17,6 +17,8 @@ WORKDIR /app
 ARG SITE_URL
 ENV SITE_URL=$SITE_URL
 
+RUN echo "SITE_URL=$SITE_URL"
+
 COPY . .
 
 RUN pnpm --filter @portfolio/web build

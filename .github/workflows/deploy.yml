@@ -53,7 +53,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.APP_NAME }}:latest
-          build-args: SITE_URL=${{ vars.SITE_URL }}
+          build-args: |
+            SITE_URL=${{ vars.SITE_URL }}
 
       - name: Prepare commit title
         run: |
