@@ -12,9 +12,6 @@ const site = env.SITE_URL
 // https://astro.build/config
 export default defineConfig({
   site,
-  redirects: {
-    '/': '/en',
-  },
   security: {
     checkOrigin: false,
   },
@@ -53,11 +50,15 @@ export default defineConfig({
     },
   },
 
+  redirects: {
+    '/': '/en',
+  },
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ru', 'es'],
     routing: {
-      redirectToDefaultLocale: true,
+      redirectToDefaultLocale: false,
       prefixDefaultLocale: true,
     },
   },
