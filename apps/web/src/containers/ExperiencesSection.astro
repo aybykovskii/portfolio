@@ -2,9 +2,10 @@
 import type { CollectionEntry } from 'astro:content'
 
 import ExperienceCard from '@/components/ExperienceCard.astro'
+import type { Translated } from '@/i18n'
 
 interface Props {
-  experiences: CollectionEntry<'experiences'>[]
+  experiences: Translated<CollectionEntry<'experiences'>['data']>[]
   technologiesByExperiences: Record<string, CollectionEntry<'technologies'>[]>
 }
 
@@ -16,7 +17,7 @@ const { commonTranslations } = Astro.locals
     {commonTranslations.sections.experience}
   </h2>
 
-  {experiences?.map(({ data: experience }) => (
+  {experiences?.map((experience) => (
     <ExperienceCard
       experience={experience}
       technologies={technologiesByExperiences[experience.slug] ?? []}

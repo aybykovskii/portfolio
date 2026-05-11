@@ -4,15 +4,16 @@ import type { CollectionEntry } from 'astro:content'
 import { Calendar, FileUser, Github, Linkedin, Mail, MapPin } from 'lucide-react'
 
 import { Bar } from '@/components/Bar'
+import type { Translated } from '@/i18n'
 import { getCdnImageUrl, getProgressPercent } from '@/utils'
 
 interface Props {
-  languages?: CollectionEntry<'languages'>[]
+  languages?: Translated<CollectionEntry<'languages'>['data']>[]
   skills?: CollectionEntry<'technologies'>[]
 }
 
 const { languages, skills } = Astro.props
-const { commonTranslations, bio, lang } = Astro.locals
+const { commonTranslations, bio } = Astro.locals
 
 const { avatar, name, position, location } = bio
 
@@ -76,9 +77,9 @@ const contactIcons: Record<string, typeof Mail> = {
 
   <section class:list={['panel-section sm:col-span-1 sm:row-span-3']}>
     <ul class="flex flex-col w-full gap-2">
-      {languages?.map(({ data: language }) => (
+      {languages?.map((language) => (
         <Bar
-          title={language.translations[lang].name}
+          title={language.name}
           progress={getProgressPercent(language.level)}
         />
       ))}

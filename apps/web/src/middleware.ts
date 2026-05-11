@@ -2,25 +2,9 @@ import type { MiddlewareHandler } from 'astro'
 
 import llmsContent from '../public/llms.txt?raw'
 
-import bio from './collections/bio.json'
-import common from './collections/common.json'
-import type { CommonTranslations } from './collections/types'
-import type { Lang } from './types'
-import { getTranslated } from './utils'
-
-function assertIsTranslations (obj: unknown): obj is Record<Lang, string> {
-  return typeof obj === 'object' && obj !== null && 'en' in obj && typeof obj.en === 'string'
-}
-
-function buildTranslations (obj: Record<string, unknown>, lang: Lang): CommonTranslations {
-  return Object.fromEntries(
-    Object.entries(obj).map(([key, value]) =>
-      assertIsTranslations(value)
-        ? [key, value[lang] ?? value.en]
-        : [key, buildTranslations(value as Record<string, unknown>, lang)]
-    ),
-  ) as CommonTranslations
-}
+import { bio } from './collections/types'
+import { getCommonTranslations, translateEntry } from './i18n'
+import { lang as langSchema } from './types'
 
 const SKIP_MARKDOWN = /^(\/_actions|\/api|\/[^/]+\.(js|css|png|jpg|jpeg|svg|ico|webp|xml|txt|json))/
 
@@ -37,11 +21,12 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
     })
   }
 
-  const lang = (context.params.lang ?? 'en') as Lang
+  const langHeader = langSchema.safeParse(context.request.headers.get('accept-language'))
+  const lang = langHeader.success ? langHeader.data : langSchema.parse(context.params.lang ?? 'en')
 
   context.locals.lang = lang
-  context.locals.commonTranslations = buildTranslations(common, lang)
-  context.locals.bio = getTranslated(bio, lang)
+  context.locals.commonTranslations = getCommonTranslations(lang)
+  context.locals.bio = translateEntry(bio, lang)
 
   const response = await next()
 

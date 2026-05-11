@@ -3,9 +3,10 @@ import type { CollectionEntry } from 'astro:content'
 import { PROJECT_DETAILS_ENABLED } from 'astro:env/server'
 
 import ProjectCard from '@/components/ProjectCard.astro'
+import type { Translated } from '@/i18n'
 
 interface Props {
-  projects: CollectionEntry<'projects'>[]
+  projects: Translated<CollectionEntry<'projects'>['data']>[]
   technologiesById: Record<string, CollectionEntry<'technologies'>>
 }
 
@@ -17,7 +18,7 @@ const { commonTranslations } = Astro.locals
     {commonTranslations.sections.projects}
   </h2>
 
-  {projects?.map(({ data: project }) => (
+  {projects?.map((project) => (
     <ProjectCard
       technologiesById={technologiesById}
       project={project}

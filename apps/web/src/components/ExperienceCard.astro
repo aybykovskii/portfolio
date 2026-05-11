@@ -2,22 +2,22 @@
 import type { CollectionEntry } from 'astro:content'
 import { Calendar, ChevronRight, MapPin } from 'lucide-react'
 
+import type { Translated } from '@/i18n'
+
 import { LinkTitle } from './LinkTitle'
 import TechnologiesList from './TechnologiesList.astro'
 
 interface Props {
-  experience: CollectionEntry<'experiences'>['data']
+  experience: Translated<CollectionEntry<'experiences'>['data']>
   technologies: CollectionEntry<'technologies'>[]
 }
 
 const {
-  experience: { position, company, companyUrl, start, end, location, translations },
+  experience: { position, company, companyUrl, start, end, location, description, achievements },
   technologies,
 } = Astro.props
 
-const { commonTranslations, lang } = Astro.locals
-
-const achievementsList = translations[lang].achievements
+const { commonTranslations } = Astro.locals
 
 const subInfo = [
   {
@@ -44,7 +44,7 @@ const subInfo = [
     ))}
   </div>
 
-  <p class="text-base leading-relaxed">{translations[lang].description}</p>
+  <p class="text-base leading-relaxed">{description}</p>
 
   <details class="group collapse">
     <summary class="flex items-center gap-3 cursor-pointer collapse-title pl-0">
@@ -59,7 +59,7 @@ const subInfo = [
     </summary>
 
     <ul class="flex flex-col gap-3 border-l-primary border-l ml-[9px] collapse-content">
-      {achievementsList.map((achievement) => (
+      {achievements.map((achievement) => (
         <li class="text-base-content text-base before:mr-3 before:text-primary before:content-['-']">
           {achievement}
         </li>

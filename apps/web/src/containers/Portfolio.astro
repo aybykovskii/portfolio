@@ -5,16 +5,16 @@ import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
 import { getEntries } from 'astro:content'
 
-import { bio } from '@/collections/types'
 import ContactForm from '@/components/ContactForm.astro'
 import Title from '@/components/Title.astro'
+import { translateEntry } from '@/i18n'
 
 import ExperiencesSection from './ExperiencesSection.astro'
 import Panel from './Panel.astro'
 import ProjectsSection from './ProjectsSection.astro'
 import SkillsSections from './SkillsSections.astro'
 
-const { lang } = Astro.locals
+const { lang, bio } = Astro.locals
 
 const projects = await getCollection('projects')
 const experiences = await getCollection('experiences')
@@ -35,6 +35,10 @@ for (const experience of experiences) {
   const list = await getEntries(experience.data.technologies)
   technologiesByExperiences[experience.data.slug] = list.filter(Boolean)
 }
+
+const translatedExperiences = experiences.map((e) => translateEntry(e.data, lang))
+const translatedProjects = projects.map((p) => translateEntry(p.data, lang))
+const translatedLanguages = languages.map((l) => translateEntry(l.data, lang))
 ---
 
 <div
@@ -52,23 +56,23 @@ for (const experience of experiences) {
     <h1 class="flex flex-wrap gap-3.5"><Title /></h1>
 
     <p class="text-base-content/60 font-normal text-lg leading-relaxed">
-      {bio.translations[lang].description}
+      {bio.description}
     </p>
   </section>
 
   <div class:list={['order-2 xl:col-start-2 xl:row-start-1 xl:row-span-2 xl:sticky xl:top-[82px] xl:self-start']}>
-    <Panel languages={languages} skills={technologies} />
+    <Panel languages={translatedLanguages} skills={technologies} />
   </div>
 
   <section class:list={['order-3 flex flex-col gap-12', 'xl:col-start-1 xl:row-start-2']}>
     <ExperiencesSection
-      experiences={experiences}
+      experiences={translatedExperiences}
       technologiesByExperiences={technologiesByExperiences}
     />
 
     <SkillsSections technologies={technologies} />
 
-    <ProjectsSection projects={projects} technologiesById={technologiesById} />
+    <ProjectsSection projects={translatedProjects} technologiesById={technologiesById} />
 
     <ContactForm />
   </section>

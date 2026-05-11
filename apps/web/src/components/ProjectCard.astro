@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import { Check, Clock, Github } from 'lucide-react'
 
+import type { Translated } from '@/i18n'
 import { getCdnImageUrl } from '@/utils'
 
 import { LinkTitle } from './LinkTitle'
@@ -11,14 +12,14 @@ import TechnologiesList from './TechnologiesList.astro'
 const { commonTranslations, lang } = Astro.locals
 
 interface Props {
-  project: CollectionEntry<'projects'>['data']
+  project: Translated<CollectionEntry<'projects'>['data']>
   technologiesById: Record<string, CollectionEntry<'technologies'>>
   isProjectDetailsEnabled: boolean
 }
 
 const {
   technologiesById,
-  project: { slug, title, translations, status, images, button, url, technologies: technologiesSlug },
+  project: { slug, title, description, status, images, button, url, technologies: technologiesSlug },
   isProjectDetailsEnabled,
 } = Astro.props
 
@@ -42,7 +43,7 @@ const technologies = technologiesSlug.map((id) => technologiesById[id]).filter(B
       </span>
     </div>
 
-    <p>{translations[lang].description}</p>
+    <p>{description}</p>
 
     <TechnologiesList technologies={technologies} />
 
