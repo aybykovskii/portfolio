@@ -1,5 +1,5 @@
 FROM oven/bun:1-alpine AS base
-RUN bun add --global pnpm
+RUN bun add --global pnpm@10
 
 # ── deps ──────────────────────────────────────────────────────────────────────
 FROM base AS deps
