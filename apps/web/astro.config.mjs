@@ -23,7 +23,7 @@ export default defineConfig({
 
   image: {
     service: passthroughImageService(),
-    domains: ['d18jkaylrcswn0.cloudfront.net'],
+    domains: ['cdn.toro-devs.pro'],
   },
 
   fonts: [{
